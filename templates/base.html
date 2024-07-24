@@ -19,27 +19,33 @@
 
 <body class="d-flex flex-column vh-100 main-bg">
     <!--Offcanvas menu toggler-->
-    <nav>
-        <div class="container">
-            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                <i class="fa-solid fa-bars"></i>
+    <header class="container-fluid pt-3 bg-light bg-gradient">
+        <div class="d-flex justify-content-start">
+            <a class="ps-md-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                aria-controls="offcanvasExample">
+                <i class="fa-solid fa-bars fs-1"></i>
             </a>
         </div>
-    </nav>
+        <div class="d-flex justify-content-center">
+            <h1 class="pb-3">Good World News</h1>
+        </div>
+    </header>
     <!--Content-->
     <main class="flex-shrink-0 main-bg">
         <div class="container">
-            Example Example Example
+
         </div>
     </main>
     <!--Footer-->
-    <footer class="footer mt-auto py-3">
-        <div class="d-flex justify-content-around">
-            <span class="w-auto p-3">Good News For You!</span>
-            <a href="#" class="w-auto p-3">
-                <i class="fa-solid fa-earth-europe"></i>
-            </a>
-            <span class="w-auto p-3">&copy; 2024</span>
+    <footer class="container-fluid mt-auto py-3 bg-light bg-gradient">
+        <div class="container-fluid">
+            <div class="row">
+                <span class="col-4 text-center">Good News For You!</span>
+                <a href="#" class="col-4 text-center">
+                    <i class="fa-solid fa-earth-europe"></i>
+                </a>
+                <span class="col-4 text-center">&copy; 2024</span>
+            </div>
         </div>
     </footer>
     <!--Menu as offcanvas-->
