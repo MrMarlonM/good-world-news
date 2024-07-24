@@ -4,4 +4,5 @@ from .models import Article
 
 # Create your views here.
 class ArticleList(generic.ListView):
-    model = Article
+    queryset = Article.objects.filter(status=1)
+    template_name = "newsfeed/index.html"

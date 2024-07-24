@@ -17,7 +17,7 @@
     <script src="https://kit.fontawesome.com/98b8135e56.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="d-flex flex-column vh-100 main-bg">
+<body class="d-flex flex-column vh-100">
     <!--Offcanvas menu toggler-->
     <header class="container-fluid pt-3 bg-light bg-gradient">
         <div class="d-flex justify-content-start">
@@ -31,10 +31,12 @@
         </div>
     </header>
     <!--Content-->
-    <main class="flex-shrink-0 main-bg">
-        <div class="container">
+    <main class="flex-shrink-0">
+        
+        {% block content %}
+        <!--Content of other templates will be put here-->
+        {% endblock content %}
 
-        </div>
     </main>
     <!--Footer-->
     <footer class="container-fluid mt-auto py-3 bg-light bg-gradient">
