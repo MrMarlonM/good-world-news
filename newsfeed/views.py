@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Article
 
 # Create your views here.
-def newsfeed(request):
-    return HttpResponse("Hello World!")
+class ArticleList(generic.ListView):
+    model = Article
