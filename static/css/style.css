@@ -1,0 +1,42 @@
+/************************ Google Fonts Import ****************************/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sevillana&display=swap');
+
+/************************ Styles for base.html ***************************/
+.title {
+    font-family: "Sevillana", cursive;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 50px;
+    text-align: center;
+}
+
+body {
+    font-family: "Noto Serif", serif;
+}
+
+.fa-bars {
+    line-height: unset;
+}
+
+/************************ Custom Style for breaking news banner **********/
+.breaking-news-ticker {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0;
+    border-radius: 0;
+  }
+  
+  .ticker-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    width: 100%;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
