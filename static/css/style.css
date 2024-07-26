@@ -30,7 +30,8 @@ body {
     overflow: hidden;
     white-space: nowrap;
     padding: 0;
-    border-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
   
   .ticker-content {
@@ -47,3 +48,15 @@ body {
       transform: translateX(-100%);
     }
   }
+
+/************************ Custom Style for Cards *************************/
+.card {
+  box-shadow: 1px 1px 5px lightgray;
+}
+
+/************************ Custom Style for images in articles ************/
+.image-article {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
