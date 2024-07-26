@@ -7,11 +7,11 @@ body {
 }
 
 .title {
-    font-family: "Sevillana", cursive;
-    font-weight: 600;
-    letter-spacing: 3px;
-    font-size: 50px;
-    text-align: center;
+  font-family: "Sevillana", cursive;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 50px;
+  text-align: center;
 }
 
 .intro {
@@ -22,32 +22,14 @@ body {
 }
 
 .fa-bars {
-    line-height: unset;
+  line-height: unset;
 }
 
 /************************ Custom Style for breaking news banner **********/
 .breaking-news-ticker {
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  
-  .ticker-content {
-    display: inline-block;
-    animation: marquee 30s linear infinite;
-    width: 100%;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
 /************************ Custom Style for Cards *************************/
 .card {
