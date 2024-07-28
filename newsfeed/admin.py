@@ -5,9 +5,9 @@ from .models import Article, Comment, Like
 
 @admin.register(Article)
 class ArticleAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'slug', 'status')
-    search_fields = ['title']
-    list_filter = ('status',)
+    list_display = ('title', 'created_on', 'status',)
+    search_fields = ['title', 'content']
+    list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content', 'excerpt',)
 
