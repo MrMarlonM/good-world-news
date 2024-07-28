@@ -45,6 +45,11 @@ header, footer {
   background-color: white;
 }
 
+.image-index {
+  max-height: 300px;
+  width: min-content;
+}
+
 /************************ Custom Style for images in articles ************/
 .image-article {
   width: 100%;

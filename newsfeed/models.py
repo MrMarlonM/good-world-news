@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -11,6 +12,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     is_breaking_news = models.BooleanField(default=False)
+    image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
