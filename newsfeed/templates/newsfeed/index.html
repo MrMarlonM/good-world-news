@@ -14,7 +14,7 @@
                 <h2 class="card-title text-center">{{ new.title }}</h2>
                 <p class="card-text text-center">{{ new.excerpt }}</p>
                 <div class=" d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary stretched-link">Read More</a>
+                    <a href="{% url 'article_detail' new.slug %}" class="btn btn-primary stretched-link">Read More</a>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     <h3 class="card-title text-center">{{ article.title }}</h3>
                     <p class="card-text text-center">{{ article.excerpt }}</p>
                     <div class=" d-flex justify-content-center">
-                        <a href="#" class="btn btn-primary stretched-link">Read More</a>
+                        <a href="{% url 'article_detail' article.slug %}" class="btn btn-primary stretched-link">Read More</a>
                     </div>
                 </div>
             </div>

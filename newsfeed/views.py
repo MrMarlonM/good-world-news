@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Article
 
@@ -11,3 +11,13 @@ def article_list(request):
         'articles': articles,
     }
     return render(request, 'newsfeed/index.html', context)
+
+def article_detail(request, slug):
+    articles = Article.objects.filter(status=1)
+    article = get_object_or_404(articles, slug=slug)
+
+    return render(
+        request,
+        "newsfeed/article_detail.html",
+        {"article": article},
+    )
