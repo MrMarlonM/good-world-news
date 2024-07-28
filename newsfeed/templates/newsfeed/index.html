@@ -12,30 +12,30 @@
             </div>
             <div class="card-body">
                 <h2 class="card-title text-center">{{ new.title }}</h2>
-                <p class="card-text text-center">{{ new.excerpt }}</p>
+                <p class="card-text text-center">{{ new.excerpt|safe }}</p>
                 <div class=" d-flex justify-content-center">
-                    <a href="{% url 'article_detail' new.slug %}" class="btn btn-primary stretched-link">Read More</a>
+                    <a href="{% url 'article_detail' new.slug %}" class="btn btn-secondary stretched-link">Read More</a>
                 </div>
             </div>
         </div>
     </div>
     {% endfor %}
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         {% for article in articles %}
-        <div class="col-md-4 mb-2">
+        <div class="col-md-5 mb-2">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-center">{{ article.title }}</h3>
-                    <p class="card-text text-center">{{ article.excerpt }}</p>
+                    <p class="card-text text-center">{{ article.excerpt|safe }}</p>
                     <div class=" d-flex justify-content-center">
-                        <a href="{% url 'article_detail' article.slug %}" class="btn btn-primary stretched-link">Read More</a>
+                        <a href="{% url 'article_detail' article.slug %}" class="btn btn-secondary stretched-link">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
-        {% if forloop.counter|divisibleby:3 %}
+        {% if forloop.counter|divisibleby:2 %}
     </div>
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         {% endif %}
         {% endfor %}
     </div>
