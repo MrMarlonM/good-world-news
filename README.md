@@ -80,3 +80,14 @@ To make sure the interests of the target audience are met, the following Epics w
 - **USER STORY:** As a registered user I can like articles so that I show that I show my appreciation of it
 
 - **USER STORY:** As a visitor I can share articles easily through a button so that I can send them to others or share them on social media with ease
+
+## Technologies Used
+### Languages
+- [Python 3.12.2](https://www.python.org/downloads/release/python-3122/): As primary server-side language.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript): For interactivity on the website.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): To style the website.
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): The markup language for the website.
+
+### Frameworks and Libaries
+- [Django](https://www.djangoproject.com/): The framework used for the logic behind the project.
+- [Bootstrap](https://getbootstrap.com/): The library used for styling and customization.
