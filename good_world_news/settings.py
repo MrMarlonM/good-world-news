@@ -151,3 +151,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom adapter to redirect different user groups after logging in
+ACCOUNT_ADAPTER = 'good_world_news.adapters.CustomAccountAdapter'
