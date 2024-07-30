@@ -3,5 +3,5 @@ from .models import Contact
 
 # Register your models here.
 @admin.register(Contact)
-class COntactAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     pass
