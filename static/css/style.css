@@ -46,8 +46,9 @@ header, footer {
 }
 
 .image-index {
-  max-height: 300px;
-  width: min-content;
+  width: 80%;
+  height: auto;
+  border-radius: 5px;
 }
 
 /************************ Custom Style for images in articles ************/
