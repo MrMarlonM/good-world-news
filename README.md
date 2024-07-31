@@ -161,3 +161,10 @@ The problem was that the toggler was part of the header element and not of the b
 
 ### Unsolved Bugs
 - Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse enormously.
+
+## Credits
+- For the navbar of this project I referenced the code of the [Codestar Walkthrough Project](https://github.com/MrMarlonM/django-blog) provided by Code Institute. 
+
+## Acknowledgments
+- I want to thank [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for her guidance and support throughout this project.
+- A big thank you to all of the Team of [Code Institute](https://codeinstitute.net/) for providing the learning content which enabled me to create this project.
