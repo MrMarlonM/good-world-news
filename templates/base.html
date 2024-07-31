@@ -26,7 +26,7 @@
     <header class="container-fluid pt-3">
         <div class="d-flex justify-content-start sticky-top">
             <a class="ps-md-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                aria-controls="offcanvasExample">
+                aria-controls="offcanvasExample" aria-label="click here to open menu">
                 <i class="fa-solid fa-bars fs-2 text-black"></i>
             </a>
         </div>
@@ -48,7 +48,8 @@
         <div class="container-fluid">
             <div class="row">
                 <span class="col-4 text-center">Good News For You!</span>
-                <a href="{{ home_url }}" class="col-4 text-center">
+                <a href="{{ home_url }}" class="col-4 text-center"
+                    aria-label="click here to reload site and go back to top">
                     <i class="fa-solid fa-earth-europe text-black"></i>
                 </a>
                 <span class="col-4 text-center">&copy; 2024</span>
@@ -65,29 +66,29 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
-                        href="{% url 'home' %}">News</a>
+                        href="{% url 'home' %}" aria-label="Click here to go to newsfeed">News</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
-                        href="#">About</a>
+                        href="#" aria-label="click here to go to about page">About</a>
                     {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
-                        href="{% url 'account_logout' %}">Logout</a>
+                        href="{% url 'account_logout' %}" aria-label="click here to log out">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
-                        href="{% url 'account_signup' %}">Register</a>
+                        href="{% url 'account_signup' %}" aria-label="click here to register a new account">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}"
-                        href="{% url 'account_login' %}">Login</a>
+                        href="{% url 'account_login' %}" aria-label="click here to sign in">Login</a>
                 </li>
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
-                        href="{% url 'contact' %}">Contact Us</a>
+                        href="{% url 'contact' %}" aria-label="click here to fill out a contact form">Contact Us</a>
             </ul>
         </div>
     </div>
