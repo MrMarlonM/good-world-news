@@ -91,3 +91,47 @@ To make sure the interests of the target audience are met, the following Epics w
 ### Frameworks and Libaries
 - [Django](https://www.djangoproject.com/): The framework used for the logic behind the project.
 - [Bootstrap](https://getbootstrap.com/): The library used for styling and customization.
+
+### Tools and Helpers
+- [Freeconvert](https://www.freeconvert.com/webp-converter): To convert images into webp.
+- [Pexels](https://www.pexels.com/): For free images.
+- [Google Gemini](https://gemini.google.com/): To write the Fiction Articles
+- [Balsamiq](https://balsamiq.com/): For creation of the Wireframes and Database Models
+- [Fontawesome](https://fontawesome.com/): For icons used on the website.
+- [Google Fonts](https://fonts.google.com/): For implementation of different fonts.
+- [Heroku](https://www.heroku.com/): To host the live version
+- [Github](https://github.com/): To host the code base
+- [Git](https://git-scm.com/): For version control
+- [VS Code](https://code.visualstudio.com/): As Code Editor
+- [Gitpod](https://www.gitpod.io/): As Virtual Development Environment
+- [Pip3](https://pypi.org/project/pip/): As package manager for dependencies.
+- [Allauth](https://django-allauth.readthedocs.io/en/latest/): For authentification of different users.
+- [Spycopg2](https://pypi.org/project/psycopg2/): As database driver to connect to the database.
+- [Gunicorn](https://gunicorn.org/): As webserver to run the website.
+- [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/): As cloud database to store the data.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/): For debugging the Website.
+
+## Bugs
+### Solved Bugs
+- *Bug 1:*  
+When applying height and width to images in the newsfeed, the images didn't render properly and stretched or compressed without keeping the right ratio.  
+*Solution:*  
+To solve the issue, the `width` was set to a `percent value` and the `height` to `auto`
+
+- *Bug 2:*  
+When using a url variable `contact_url` in the `base.html` template, it didn't work as intended and couldn't find the corresponding url.  
+*Solution:*  
+When trying to solve the issue, I found that assigning variables at the top of the template does not work and the issue was resolved through defining the link directly over the url name `href="{% url 'contact' %}"` as given in the `urls.py`.
+
+- *Bug 3:*  
+When starting the server in development it didn't work and the server crashed. In the console a `TypeError` was encountered.  
+*Solution:*  
+The cause for this was a typo in the `forms.py` file within the `contact` app. The instead of an `EmailInput` field an `EmailField` was used which is an unexpected keyword.
+
+- *Bug 4:*  
+When using `Summernote` to decorate the articles it didn't work and the page was printing all html tags as plain text.  
+*Solution:*  
+The problem arose because of Djangos build in feature to excape HTML content automatically for security reasons. To solve the problem the template filter `safe` was used.
+
+### Unsolved Bugs
+- Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse enormously.
