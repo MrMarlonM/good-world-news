@@ -112,6 +112,18 @@ To make sure the interests of the target audience are met, the following Epics w
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/): For debugging the Website.
 
 ## Design
+To make the website as easily usable as possible and create a calm and pleasant experience, a very minimalistic approach was used. Large open spaces make it easy to focus on the relevant content and let the texts and images on the page be in the spotlight.
+
+### Color Scheme
+To maintain readability and focus on the words written, a very homgenic color palette with maximal contrast was used.  
+
+![image of colors used](documentation/colors.webp)  
+
+### Typography
+As Font for the Title was Sevillana used because of its elegance. To maintain a good readability for all functional text and to website Noto Serif was used. Also the Editors can choose their own font for the articles through Summernote. 
+
+![image of fonts used](documentation/fonts.webp)
+
 ### Wireframes
 For the Wireframes drawn for this project plese refer to [this PDF](documentation/wireframes-good-world-news.pdf).
 
@@ -136,6 +148,16 @@ The cause for this was a typo in the `forms.py` file within the `contact` app. T
 When using `Summernote` to decorate the articles it didn't work and the page was printing all html tags as plain text.  
 *Solution:*  
 The problem arose because of Djangos build in feature to excape HTML content automatically for security reasons. To solve the problem the template filter `safe` was used.
+
+- *Bug 5:*  
+When deploying the project to `Heroku` it it did not work as expected and the App did not start at all.  
+*Solution:*  
+The problem was twofold. First `Heroku` wasn't listed as allowed host which was resolved through adding `.herokuapp.com` to the `ALLOWED_HOSTS` list. The second problem was a typo in the `CSRF_TRUSTED_ORIGINS` list. Here I forgot to add the `.` before `herokuapp.com`.
+
+- *Bug 6:*  
+The toggler for the navigation panel did stop showing at the top when scrolling down.  
+*Solution:*
+The problem was that the toggler was part of the header element and not of the body element, also the `height: 100vh` property of the body element needed to be removed to allow for the toggler to stay visible all the way down to the bottom of the page.
 
 ### Unsolved Bugs
 - Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse enormously.
