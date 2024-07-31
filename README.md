@@ -111,6 +111,10 @@ To make sure the interests of the target audience are met, the following Epics w
 - [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/): As cloud database to store the data.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/): For debugging the Website.
 
+## Design
+### Wireframes
+For the Wireframes drawn for this project plese refer to [this PDF](documentation/wireframes-good-world-news.pdf).
+
 ## Bugs
 ### Solved Bugs
 - *Bug 1:*  
