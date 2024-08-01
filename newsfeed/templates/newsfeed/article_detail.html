@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-10">
-            <div class="row">
+            <div class="row d-flex justify-content-between p-3">
                 <div class="col-lg-5">
                     <h2 class="text-center my-3">{{ article.title }}</h2>
                     <p class="pe-5">
@@ -18,9 +18,32 @@
                 {% endif %}
             </div>
             <div class="row p-3 my-3">
-                {{ article.content|safe }}
+                <p>{{ article.content|safe }}</p>
+                <p class="card-text text-muted h6">
+                    Published on {{ article.created_on }} by {{ article.author }}
+                </p>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <h2>Leave a comment here:</h2>
+        <form class="col-6 my-3" method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button class="btn btn-secondary text-center m-2" type="submit"
+                aria-label="Click here to submit your comment">Submit</button>
+        </form>
+    </div>
+    <div class="row">
+        <h2>Comments</h2>
+        {% for comment in comments %}
+        <div class="comment">
+            <p>{{ comment.content }}</p>
+            <p class="text-muted h6">
+                By {{ comment.author }} on {{ comment.created_on }}
+            </p>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
