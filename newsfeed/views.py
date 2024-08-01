@@ -21,3 +21,6 @@ def article_detail(request, slug):
         "newsfeed/article_detail.html",
         {"article": article},
     )
+
+def about(request):
+    return render(request, 'newsfeed/about.html')
