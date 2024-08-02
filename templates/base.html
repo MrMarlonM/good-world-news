@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column min-vh-100">
     <!--Offcanvas menu toggler-->
     <div class="d-flex justify-content-start sticky-top">
         <a class="ps-md-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
@@ -50,7 +50,7 @@
         </div>
     </div>
     <!--Content-->
-    <main class="flex-shrink-0">
+    <main class="flex-shrink-0 flex-grow-1">
 
         {% block content %}
         <!--Content of other templates will be put here-->
@@ -111,7 +111,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
     {% block extras %}
-    {% endblock extras %} 
+    {% endblock extras %}
 </body>
 
 </html>

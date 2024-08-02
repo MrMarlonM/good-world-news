@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.contenttypes.models import ContentType
 from .models import Article, Comment, Like
 from .forms import CommentForm
@@ -42,8 +42,8 @@ def article_detail(request, slug):
                 request, messages.SUCCESS,
                 'Your comment was submitted successfully and awaits aproval now.'
             )
-    else:
-        comment_form = CommentForm() 
+    
+    comment_form = CommentForm() 
 
     context = {
         'article': article,
@@ -51,6 +51,7 @@ def article_detail(request, slug):
         'comment_form': comment_form,
         'user': request.user,
         'number_of_likes': article.number_of_likes(),
+        'is_moderator': request.user.groups.filter(name='Moderator').exists(),
     }
 
     return render(
@@ -73,7 +74,8 @@ def comment_edit(request, slug, comment_id):
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
-        if comment_form.is_valid() and comment.author == request.user:
+        if comment_form.is_valid() and (comment.author == request.user
+        or request.user.groups.filter(name='Moderator').exists()):
             comment = comment_form.save(commit=False)
             comment.article = article
             comment.approved = False
@@ -99,7 +101,8 @@ def comment_delete(request, slug, comment_id):
     article = get_object_or_404(articles, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
-    if comment.author == request.user:
+    if (comment.author == request.user or
+    request.user.groups.filter(name='Moderator').exists()):
         comment.delete()
         messages.add_message(
             request, messages.SUCCESS,
@@ -137,3 +140,15 @@ def article_like(request, slug):
         )
     
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
+
+
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Moderator').exists())
+def approve_comment(request, comment_id):
+    """
+    View to approve a comment.
+    """
+    comment = get_object_or_404(Comment, id=comment_id)
+    comment.approved = True
+    comment.save()
+    return redirect('article_detail', slug=comment.post.slug) 
