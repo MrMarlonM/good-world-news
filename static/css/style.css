@@ -74,7 +74,7 @@ header, footer {
 /************************ Custom Style for comments **********************/
 .comment {
   background-color: rgb(225, 225, 225);
-  box-shadow: 1px 1px 5px grey;
+  box-shadow: 1px 1px 3px rgb(207, 207, 207);
 }
 
 /************************ Custom Style for messages **********************/
