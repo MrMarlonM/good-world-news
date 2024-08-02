@@ -70,3 +70,9 @@ header, footer {
 .fa-heart:hover {
   color: rgba(255, 0, 0, 0.432);
 }
+
+/************************ Custom Style for comments **********************/
+.comment {
+  background-color: rgb(225, 225, 225);
+  box-shadow: 1px 1px 5px grey;
+}
