@@ -22,6 +22,7 @@
                     <a href="{% url 'article_detail' new.slug %}" class="btn btn-secondary stretched-link"
                         aria-label="click on the article to open it">Click Here To Read More</a>
                 </div>
+                <i class="far fa-heart"></i>({{ new.number_of_likes }})
             </div>
         </div>
     </div>
@@ -42,6 +43,7 @@
                         <a href="{% url 'article_detail' article.slug %}" class="btn btn-secondary stretched-link"
                             aria-label="click on the article to open it">Click Here To Read More</a>
                     </div>
+                    <i class="far fa-heart"></i>({{ article.number_of_likes }})
                 </div>
             </div>
         </div>

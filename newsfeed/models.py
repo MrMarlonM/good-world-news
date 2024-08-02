@@ -18,9 +18,15 @@ class Article(models.Model):
     content = models.TextField(validators=[MinLengthValidator(10)])
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(User, related_name='article_like', blank=True)
 
     class Meta:
         ordering = ["-created_on"]
+    
+    def number_of_likes(self):
+        return Like.objects.filter(
+            content_type=ContentType.objects.get_for_model(Article),
+            object_id=self.id).count()
 
 
 class Comment(models.Model):

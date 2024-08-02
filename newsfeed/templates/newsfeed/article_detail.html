@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 
 <div class="container">
@@ -22,29 +23,83 @@
                 <p class="card-text text-muted h6">
                     Published on {{ article.created_on }} by {{ article.author }}
                 </p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'article_like' article.slug %}">
+                    <i class="far fa-heart"></i> Like ({{ article.number_of_likes }})
+                </a>
+                {% else %}
+                <p>To like an article you must <a href="{% url 'account_login' %}">login.</a></p>
+                <i class="far fa-heart"></i> ({{ number_of_likes }})
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="row">
         <h2>Leave a comment here:</h2>
-        <form class="col-6 my-3" method="post">
+        <form id="commentForm" class="col-6 my-3" method="post">
             {% csrf_token %}
             {{ comment_form.as_p }}
-            <button class="btn btn-secondary text-center m-2" type="submit"
+            <button id="submitButton" class="btn btn-secondary text-center m-2" type="submit"
                 aria-label="Click here to submit your comment">Submit</button>
         </form>
     </div>
     <div class="row">
-        <h2>Comments</h2>
-        {% for comment in comments %}
-        <div class="comment">
-            <p>{{ comment.content }}</p>
-            <p class="text-muted h6">
-                By {{ comment.author }} on {{ comment.created_on }}
-            </p>
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!-- We want a for loop inside the empty control tags
+          to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="p-2 comments
+          {% if not comment.approved and comment.author == user %}
+          faded{% elif not comment.approved %} d-none{% endif %}">
+                    <p class="font-weight-bold">
+                        {{ comment.author }}
+                        <span class="font-weight-normal">
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <div id="comment{{ comment.id }}">
+                        {{ comment.content | linebreaks }}
+                    </div>
+                    {% if not comment.approved and comment.author == user %}
+                    <p class="approval">
+                        This comment is awaiting approval
+                    </p>
+                    {% endif %}
+                    {% if user.is_authenticated and comment.author == user %}
+                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">
+                        Edit
+                    </button>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
 </div>
-
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your comment?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
