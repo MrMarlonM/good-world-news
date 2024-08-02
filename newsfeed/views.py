@@ -38,7 +38,10 @@ def article_detail(request, slug):
             new_comment.article = article
             new_comment.save()
             
-            return redirect('article_detail', slug=slug)
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your comment was submitted successfully and awaits aproval now.'
+            )
     else:
         comment_form = CommentForm() 
 
@@ -75,7 +78,16 @@ def comment_edit(request, slug, comment_id):
             comment.article = article
             comment.approved = False
             comment.save()
-    
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your comment was updated successfully and awaits approval now'
+                )
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'Something went wrong, please make sure you are logged in and try again.'
+                )
+
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
 
@@ -89,6 +101,15 @@ def comment_delete(request, slug, comment_id):
 
     if comment.author == request.user:
         comment.delete()
+        messages.add_message(
+            request, messages.SUCCESS,
+            'Your comment was successfully deleted.'
+            )
+    else:
+        messages.add_message(
+            request, messages.ERROR,
+            'Something went wrong, please make sure you are logged in and try again.'
+        )
 
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
@@ -104,7 +125,15 @@ def article_like(request, slug):
 
     if existing_like:
         existing_like.delete()
+        messages.add_message(
+            request, messages.SUCCESS,
+            'You unliked the article successfully.'
+        )
     else:
         Like.objects.create(user=request.user, content_object=article)
+        messages.add_message(
+            request, messages.SUCCESS,
+            'You liked the article successfully.'
+        )
     
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
