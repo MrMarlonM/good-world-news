@@ -76,3 +76,14 @@ header, footer {
   background-color: rgb(225, 225, 225);
   box-shadow: 1px 1px 5px grey;
 }
+
+/************************ Custom Style for messages **********************/
+.success {
+  background-color: rgb(215, 255, 174);
+  box-shadow: 1px 1px 3px rgb(207, 207, 207);
+}
+
+.error {
+  background-color: rgb(255, 175, 191);
+  box-shadow: 1px 1px 3px rgb(207, 207, 207);
+}
