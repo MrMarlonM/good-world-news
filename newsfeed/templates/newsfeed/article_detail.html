@@ -24,12 +24,14 @@
                     Published on {{ article.created_on }} by {{ article.author }}
                 </p>
                 {% if user.is_authenticated %}
-                <a href="{% url 'article_like' article.slug %}">
-                    <i class="far fa-heart"></i> Like ({{ article.number_of_likes }})
+                <a class="fs-3 text-decoration-none text-dark" href="{% url 'article_like' article.slug %}">
+                    <i class="far fa-heart"></i>
+                    <span>{{ number_of_likes }}</span>
                 </a>
                 {% else %}
                 <p>To like an article you must <a href="{% url 'account_login' %}">login.</a></p>
-                <i class="far fa-heart"></i> ({{ number_of_likes }})
+                <i class="far fa-heart"></i>
+                <span>{{ number_of_likes }}</span>
                 {% endif %}
             </div>
         </div>

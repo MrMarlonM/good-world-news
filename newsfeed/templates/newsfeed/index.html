@@ -22,7 +22,8 @@
                     <a href="{% url 'article_detail' new.slug %}" class="btn btn-secondary stretched-link"
                         aria-label="click on the article to open it">Click Here To Read More</a>
                 </div>
-                <i class="far fa-heart"></i>({{ new.number_of_likes }})
+                <i class="fs-4 far fa-heart"></i>
+                    <span class="fs-4 text-decoration-none text-dark">{{ new.number_of_likes }}</span>
             </div>
         </div>
     </div>
@@ -43,7 +44,8 @@
                         <a href="{% url 'article_detail' article.slug %}" class="btn btn-secondary stretched-link"
                             aria-label="click on the article to open it">Click Here To Read More</a>
                     </div>
-                    <i class="far fa-heart"></i>({{ article.number_of_likes }})
+                    <i class="fs-4 far fa-heart"></i>
+                    <span class="fs-4 text-decoration-none text-dark">{{ article.number_of_likes }}</span>
                 </div>
             </div>
         </div>

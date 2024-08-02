@@ -144,11 +144,15 @@ def article_like(request, slug):
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Moderator').exists())
-def approve_comment(request, comment_id):
+def approve_comment(request, slug, comment_id):
     """
     View to approve a comment.
     """
     comment = get_object_or_404(Comment, id=comment_id)
     comment.approved = True
     comment.save()
-    return redirect('article_detail', slug=comment.post.slug) 
+    messages.add_message(
+        request, messages.SUCCESS,
+        'Approval was successful!'
+    )
+    return redirect('article_detail', slug=comment.article.slug) 
