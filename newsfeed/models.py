@@ -23,6 +23,9 @@ class Article(models.Model):
     class Meta:
         ordering = ["-created_on"]
     
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
     def number_of_likes(self):
         return Like.objects.filter(
             content_type=ContentType.objects.get_for_model(Article),
@@ -40,7 +43,7 @@ class Comment(models.Model):
         ordering = ["-created_on"]
     
     def __str__(self):
-        return f"Comment {self.content} by {self.author}"
+        return f"Comment on - {self.article.title} - by - {self.author} -"
 
 
 class Like(models.Model):
@@ -48,3 +51,6 @@ class Like(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
+
+    def __str__(self):
+        return f"Like by {self.user} on {self.content_object}"
