@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     {% for new in breaking_news %}
-    <div class="row  d-flex justify-content-center">
+    <article class="row  d-flex justify-content-center">
         <div class="col-8 card my-2 px-0">
             <div class="alert alert-danger py-0 breaking-news-ticker">
                 BREAKING NEWS
@@ -26,11 +26,11 @@
                     <span class="fs-4 text-decoration-none text-dark">{{ new.number_of_likes }}</span>
             </div>
         </div>
-    </div>
+    </article>
     {% endfor %}
     <div class="row d-flex justify-content-center">
         {% for article in articles %}
-        <div class="col-md-5 mb-2">
+        <article class="col-md-5 mb-2">
             <div class="card">
                 {% if article.image and "placeholder" not in article.image.url %}
                 <div class="d-flex justify-content-center">
@@ -48,7 +48,7 @@
                     <span class="fs-4 text-decoration-none text-dark">{{ article.number_of_likes }}</span>
                 </div>
             </div>
-        </div>
+        </article>
         {% if forloop.counter|divisibleby:2 %}
     </div>
     <div class="row d-flex justify-content-center">
