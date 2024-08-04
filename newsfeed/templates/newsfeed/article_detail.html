@@ -72,7 +72,7 @@
                        - This comment is awaiting approval -
                     </p>
                     {% endif %}
-                    {% if user.is_authenticated and comment.created_by == user or is_moderator %}
+                    {% if user.is_authenticated and comment.author == user or is_moderator %}
                     <button class="btn btn-danger btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
                     <button class="btn btn-warning btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
                     {% endif %}
