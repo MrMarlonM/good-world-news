@@ -10,7 +10,18 @@ from .forms import CommentForm
 # Create your views here.
 def article_list(request):
     """
-    view to show newsfeed on homepage
+    Renders the homepage (newsfeed) with a list of articles.
+
+    Retrieves:
+    - The latest breaking news article (if any) with 'is_breaking_news' set to True and 'status' set to 1 (published), ordered by descending creation date.
+    - All other published articles (with 'is_breaking_news' set to False and 'status' set to 1), ordered by descending creation date.
+
+    Context:
+    - `breaking_news`: The latest breaking news article or None if there isn't one.
+    - `articles`: A queryset of all other published articles.
+
+    Template:
+    - Renders the 'newsfeed/index.html' template.
     """
     breaking_news = Article.objects.filter(is_breaking_news=True, status=1).order_by('-created_on')
     articles = Article.objects.filter(is_breaking_news=False, status=1).order_by('-created_on')
@@ -23,7 +34,28 @@ def article_list(request):
 
 def article_detail(request, slug):
     """
-    view to show individual article on page
+    Renders the detail page for a single article.
+
+    Retrieves:
+    - The article object based on the provided slug, ensuring it's published (status=1).
+    - All comments associated with the article.
+
+    Handles:
+    - GET requests: Displays the article details, existing comments, and a comment form.
+    - POST requests: Processes comment form submissions, creates a new comment, associates it 
+                      with the article and the logged-in user, and saves it to the database. 
+                      Then redirects back to the article detail page with a success message.
+
+    Context:
+    - `article`: The Article object being viewed.
+    - `comments`: A queryset of all comments associated with the article.
+    - `comment_form`: An instance of the CommentForm for submitting new comments.
+    - `user`: The currently logged-in user.
+    - `number_of_likes`: The number of likes for the article.
+    - `is_moderator`: A boolean indicating whether the current user is a moderator.
+
+    Template:
+    - Renders the 'newsfeed/article_detail.html' template.
     """
     articles = Article.objects.filter(status=1)
     article = get_object_or_404(articles, slug=slug)
@@ -66,7 +98,31 @@ def about(request):
 
 def comment_edit(request, slug, comment_id):
     """
-    View to edit comments
+    Handles editing an existing comment.
+
+    Retrieves:
+    - The published article based on the provided slug.
+    - The comment object to be edited based on the comment_id.
+
+    Handles:
+    - POST requests: Processes the comment edit form submission.
+        - If the form is valid and the user is either the comment author or a moderator:
+            - Updates the comment with the new data from the form.
+            - Sets the comment's 'approved' status to False (awaiting approval).
+            - Saves the updated comment.
+            - Redirects to the article detail page with a success message.
+        - If the form is invalid or the user is not authorized:
+            - Redirects to the article detail page with an error message.
+
+    - GET requests: (Assumed but not explicitly handled in the code)
+        - Would likely render a form for editing the comment (not implemented in the current code).
+
+    Arguments:
+    - slug: The slug of the article the comment belongs to.
+    - comment_id: The ID of the comment to be edited.
+
+    Returns:
+    - HttpResponseRedirect: Redirects to the article detail page after processing the request.
     """
     if request.method == "POST":
         articles = Article.objects.filter(status=1)
@@ -95,7 +151,25 @@ def comment_edit(request, slug, comment_id):
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comments
+    Handles the deletion of a comment.
+
+    Retrieves:
+    - The published article based on the provided slug.
+    - The comment object to be deleted based on the comment_id.
+
+    Handles:
+    - If the user is the comment author or a moderator:
+        - Deletes the comment.
+        - Adds a success message to the request.
+    - Otherwise (user is not authorized):
+        - Adds an error message to the request.
+
+    Arguments:
+    - slug: The slug of the article the comment belongs to.
+    - comment_id: The ID of the comment to be deleted.
+
+    Returns:
+    - HttpResponseRedirect: Redirects to the article detail page after processing the request.
     """
     articles = Article.objects.filter(status=1)
     article = get_object_or_404(articles, slug=slug)
@@ -120,7 +194,25 @@ def comment_delete(request, slug, comment_id):
 @login_required
 def article_like(request, slug):
     """
-    handles liking/unliking of articles
+    Handles liking/unliking of articles.
+
+    Retrieves:
+    - The published article based on the provided slug.
+
+    Handles:
+    - Checks if the user has already liked the article.
+    - If the user has liked the article:
+        - Deletes the existing like.
+        - Adds a success message indicating the article was unliked.
+    - If the user has not liked the article:
+        - Creates a new like object, associating the user with the article.
+        - Adds a success message indicating the article was liked.
+
+    Arguments:
+    - slug: The slug of the article to be liked/unliked.
+
+    Returns:
+    - HttpResponseRedirect: Redirects back to the referring page (the article detail page in this case).
     """
     articles = Article.objects.filter(status=1)
     article = get_object_or_404(articles, slug=slug)
@@ -146,7 +238,25 @@ def article_like(request, slug):
 @user_passes_test(lambda u: u.groups.filter(name='Moderator').exists())
 def approve_comment(request, slug, comment_id):
     """
-    View to approve a comment.
+    Approves a comment, making it visible on the article detail page.
+
+    Retrieves:
+    - The comment object to be approved based on the comment_id.
+
+    Handles:
+    - Sets the comment's 'approved' status to True.
+    - Saves the updated comment.
+    - Adds a success message to the request.
+
+    Arguments:
+    - slug: The slug of the article the comment belongs to (not directly used in the current implementation).
+    - comment_id: The ID of the comment to be approved.
+
+    Returns:
+    - HttpResponseRedirect: Redirects to the article detail page after processing the request.
+
+    Permissions:
+    - Requires the user to be logged in and belong to the 'Moderator' group.
     """
     comment = get_object_or_404(Comment, id=comment_id)
     comment.approved = True
