@@ -33,6 +33,7 @@
             <i class="fa-solid fa-bars fs-2 text-black"></i>
         </a>
     </nav>
+    <!--Header-->
     <header class="container-fluid pt-3">
         <div class="d-flex justify-content-center">
             <h1 class="pb-2 title">Good World News</h1>
@@ -92,10 +93,11 @@
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
                         href="{% url 'about' %}" aria-label="click here to go to about page">About</a>
-                {% if user.is_authenticated %}
-                {% if user.is_staff or user.is_superuser %}
+                    {% if user.is_authenticated %}
+                    {% if user.is_staff or user.is_superuser %}
                 <li>
-                    <a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
+                    <a class="nav-link" href="{% url 'admin:index' %}"
+                        aria-label="Click here to get back to the admin board">Admin Panel</a>
                 </li>
                 {% endif %}
                 <li class="nav-item">
