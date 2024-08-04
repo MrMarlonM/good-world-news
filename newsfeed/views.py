@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from .models import Article, Comment, Like
 from .forms import CommentForm
 
-# Create your views here.
+
 def article_list(request):
     """
     Renders the homepage (newsfeed) with a list of articles.
