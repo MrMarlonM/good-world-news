@@ -50,8 +50,9 @@ header, footer {
 }
 
 .image-index {
-  width: 50%;
-  height: auto;
+  width: 66%;
+  height: 300px;
+  object-fit: cover;
   border-radius: 5px;
 }
 

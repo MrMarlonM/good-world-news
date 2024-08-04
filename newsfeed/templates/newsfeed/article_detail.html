@@ -8,18 +8,21 @@
             <div class="row d-flex justify-content-between p-3">
                 <div class="col-lg-5">
                     <h2 class="text-center my-3">{{ article.title }}</h2>
+                    <hr>
                     <p class="pe-5">
-                        {{ article.excerpt|safe }}
+                        <strong>{{ article.excerpt|safe }}</strong>
                     </p>
                 </div>
                 {% if article.image and "placeholder" not in article.image.url %}
-                <div class="col-lg-5 mt-3">
+                <div class="col-lg-7 mt-3">
                     <img class="image-article" src="{{ article.image.url }}" alt="{{ article.title }}" />
                 </div>
                 {% endif %}
             </div>
             <div class="row p-3 my-3">
+                <hr>
                 <p>{{ article.content|safe }}</p>
+                <hr>
                 <p class="card-text text-muted h6">
                     Published on {{ article.created_on }} by {{ article.author }}
                 </p>
@@ -38,7 +41,7 @@
     </article>
     <div class="row">
         <h2>Leave a comment here:</h2>
-        <form id="commentForm" class="col-6 my-3" method="post">
+        <form id="commentForm" class="col-md-6 my-3" method="post">
             {% csrf_token %}
             {{ comment_form.as_p }}
             <button id="submitButton" class="btn btn-secondary text-center m-2" type="submit"

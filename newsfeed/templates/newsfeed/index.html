@@ -5,8 +5,8 @@
 <div class="container-fluid">
 
     {% for new in breaking_news %}
-    <article class="row  d-flex justify-content-center">
-        <div class="col-8 card my-2 px-0">
+    <article class="row d-flex justify-content-center">
+        <div class="col-lg-8 card my-2 px-0">
             <div class="alert alert-danger py-0 breaking-news-ticker">
                 BREAKING NEWS
             </div>
@@ -30,7 +30,7 @@
     {% endfor %}
     <div class="row d-flex justify-content-center">
         {% for article in articles %}
-        <article class="col-md-5 mb-2">
+        <article class="col-lg-5 mb-2">
             <div class="card">
                 {% if article.image and "placeholder" not in article.image.url %}
                 <div class="d-flex justify-content-center">
