@@ -3,6 +3,7 @@
 {% block content %}
 
 <div class="container">
+    <!--The article detail view will be created here-->
     <article class="row d-flex justify-content-center">
         <div class="col-10">
             <div class="row d-flex justify-content-between p-3">
@@ -39,6 +40,7 @@
             </div>
         </div>
     </article>
+    <!--The ability to comment is given here-->
     <div class="row">
         <h2>Leave a comment here:</h2>
         <form id="commentForm" class="col-md-6 my-3" method="post">
@@ -48,6 +50,7 @@
                 aria-label="Click here to submit your comment">Submit</button>
         </form>
     </div>
+    <!--All comment will be presented here/Code is referenced from Code Institute Codestar Walkthrough Project-->
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
@@ -85,7 +88,7 @@
         </div>
     </div>
 </div>
-<!-- Delete confirmation modal -->
+<!-- Delete confirmation modal/Referenced from Codeinstitute Codestar Walkthroughproject -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -106,6 +109,7 @@
     </div>
 </div>
 {% endblock content %}
+<!--Loads the js script needed for comment functionality-->
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

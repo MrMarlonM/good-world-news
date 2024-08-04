@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid">
-
+    <!--All articles marked as breaking news will be generated here-->
     {% for new in breaking_news %}
     <article class="row d-flex justify-content-center">
         <div class="col-lg-8 card my-2 px-0">
@@ -29,6 +29,7 @@
     </article>
     {% endfor %}
     <div class="row d-flex justify-content-center">
+        <!--All published articles will be generated here-->
         {% for article in articles %}
         <article class="col-lg-5 mb-2">
             <div class="card">
