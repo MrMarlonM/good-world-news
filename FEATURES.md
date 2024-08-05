@@ -130,3 +130,6 @@ Further has the admin the ability to manage different user profiles directly and
 One important group created are the moderators. When the site grows it will become harder and harder to moderate and approve all the comments. Therefore, to allow for smooth scaling the Site owner has the ability to assign users the moderator roll. With that they are able to approve, edit and delete comments of other users, without needing to log into the admin panel, through buttons visible for them under every comment. This takes a major work load off of the editors which can then focus more on the creative part.
 
 ![View of comment section as moderator](documentation/moderator-view.png)
+
+
+[Click here](/README.md) to get back to the readme.
