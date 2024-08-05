@@ -10,76 +10,79 @@ Good World News is the News Website for everyone that needs a dose of positivity
 
 ## User Experience Design
 ### The Big Picture
-The website was created for everyone that needs a break from the chaos of their day-to-day life and the focus lays on creating a calm and relaxing atmosphere. For that a light background was chosen, together with big, easily readable and clearly separated content.  
-The navigation is kept simple and intuitive to use whilst making sure everything is accessible on deskops as well as on mobile phones and tablets.
+The website was created for everyone that needs a break from the chaos of their day-to-day life and the focus is on creating a calm and relaxing atmosphere. For that a light background was chosen, together with big, easily readable and clearly separated content.  
+The navigation is kept simple and intuitive to use whilst making sure everything is accessible on desktops as well as on mobile phones and tablets.
 
 ### Target Audience
-The target audience for this news website are curious people who have a general interest in nature and science, but only want to hear about the good parts of the news cycle.  
+The target audience for this news website are curious people who have a general interest in nature, culture and their surroundings, but only want to hear about the good parts of the news cycle.  
 And most important: People that just need a break and want to relax in an environment that guarantees to be free from any disturbing information.
 
 ### Epics and User Stories
 To make sure the interests of the target audience are met, the following Epics with their respective User Stories where created:
 
-#### **EPIC 1:** News Feed as an endless scroll
-- **USER STORY:** As a visitor I can see the latest news on the homepage so that I can directly dive into it without further disruption
+#### [**EPIC 1:**](https://github.com/MrMarlonM/good-world-news/issues/33) News Feed as an endless scroll
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/24) As a visitor I can see the latest news on the homepage so that I can directly dive into it without further disruption
 
-- **USER STORY:** As a visitor I can see more articles when I'm scrolling down so that I do not need to load a new site to see more content
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/25) As a visitor I can see more articles when I'm scrolling down so that I do not need to load a new site to see more content
 
-- **USER STORY:** As a visitor I can sort the articles as needed so that I can directly see content most relevant to me
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/26) As a visitor I can sort the articles as needed so that I can directly see content most relevant to me
 
-#### **EPIC 2:** Logging in as an editor
-- **USER STORY:** As an editor I can create new articles so that I can update the endless feed with the latest news
+#### [**EPIC 2:**](https://github.com/MrMarlonM/good-world-news/issues/30) Logging in as an editor
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/10) As an editor I can create new articles so that I can update the endless feed with the latest news
 
-- **USER STORY:** As an editor I can log in so that I can access the editor dashboard
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/8) As an editor I can log in so that I can access the editor dashboard
 
-- **USER STORY:** As an editor I can edit my own articles so that I can correct mistakes and adapt to changing events
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/11) As an editor I can edit my own articles so that I can correct mistakes and adapt to changing events
 
-- **USER STORY:** As an editor I can delete my own articles so that I can remove content that is not relevant anymore
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/12) As an editor I can delete my own articles so that I can remove content that is not relevant anymore
 
-- **USER STORY:** As an editor I can change my password so that I can maintain a high level of security
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/9) As an editor I can change my password so that I can maintain a high level of security
 
-#### **EPIC 3:** Admin panel for moderation of the plattform
-- **USER STORY:** As a site administrator I can manage user accounts so that I can keep everything in order
+#### [**EPIC 3:**](https://github.com/MrMarlonM/good-world-news/issues/31) Admin panel for moderation of the platform
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/14) As a site administrator I can manage user accounts so that I can keep everything in order
 
-- **USER STORY:** As a site administrator I can delete comments so that I can remove illegal content
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/15) As a site administrator I can delete comments so that I can remove illegal content
 
-- **USER STORY:** As a site admin I can approve comments before they are published so that no illegal content is posted
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/17) As a site admin I can approve comments before they are published so that no illegal content is posted
 
-- **USER STORY:** As a moderator I can approve new and edited comments before they are published so that no illegal content is posted
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/16) As a moderator I can approve new and edited comments before they are published so that no illegal content is posted
 
-- **USER STORY:** As a moderator I can delete comments so that I can remove illegal content
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/13) As a moderator I can delete comments so that I can remove illegal content
 
-- **USER STORY:** As a site admin I can view web analytics so that I'm informed about trends
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/18) As a site admin I can view web analytics so that I'm informed about trends
 
-#### **EPIC 4:** Website Accessibility
-- **USER STORY:** As a mobile user I can clearly see the content on the web page so that I can enjoy the experience
+#### [**EPIC 4:**](https://github.com/MrMarlonM/good-world-news/issues/36) Website Accessibility
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/23) As a mobile user I can clearly see the content on the web page so that I can enjoy the experience
 
-- **USER STORY:** As a mobile user I can navigate the website easily so that everything is accessible
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/22) As a mobile user I can navigate the website easily so that everything is accessible
 
-- **USER STORY:** As a handicapped person I can use a screen reader to navigate the website so that I'm included as a possible user
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/21) As a handicapped person I can use a screen reader to navigate the website so that I'm included as a possible user
 
-#### **EPIC 5:** Contact Form to reach the Company
-- **USER STORY:** As a visitor I can contact the company so that I can provide feedback or ask questions
+#### [**EPIC 5:**](https://github.com/MrMarlonM/good-world-news/issues/34) Contact Form to reach the Company
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/27) As a visitor I can contact the company so that I can provide feedback or ask questions
 
-#### **EPIC 6:** About Page
-- **USER STORY:** As a visitor I can visit the about page so that I learn more about the company and the team
+#### [**EPIC 6:**](https://github.com/MrMarlonM/good-world-news/issues/32) About Page
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/20) As a visitor I can visit the about page so that I learn more about the company and the team
 
-- **USER STORY:** As a visitor I can see the mission statement and values of the company so that I know what they stand for and what I can expect
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/19) As a visitor I can see the mission statement and values of the company so that I know what they stand for and what I can expect
 
-#### **EPIC 7:** Registration Form
-- **USER STORY:** As a new visitor I can create an account so that I can use advanced features
+#### [**EPIC 7:**](https://github.com/MrMarlonM/good-world-news/issues/28) Registration Form
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/2) As a new visitor I can create an account so that I can use advanced features
 
-#### **EPIC 8:** Logging in as a Visitor
-- **USER STORY:** As a registered user I can Log In to my account so that I can use advanced features
+#### [**EPIC 8:**](https://github.com/MrMarlonM/good-world-news/issues/29) Logging in as a Visitor
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/6) As a registered user I can Log In to my account so that I can use advanced features
 
-- **USER STORY:** As a registered user I can change my password so that I can secure my account if needed
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/7) As a registered user I can change my password so that I can secure my account if needed
 
-#### **EPIC 9:** User Interaction
-- **USER STORY:** As a registered user I can comment on posts so that I can share my thoughts and interact with other users and the authors
+#### [**EPIC 9:**](https://github.com/MrMarlonM/good-world-news/issues/35) User Interaction
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/3) As a registered user I can comment on posts so that I can share my thoughts and interact with other users and the authors
 
-- **USER STORY:** As a registered user I can like articles so that I show that I show my appreciation of it
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/4) As a registered user I can like articles so that I show that I show my appreciation of it
 
-- **USER STORY:** As a visitor I can share articles easily through a button so that I can send them to others or share them on social media with ease
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/5) As a visitor I can share articles easily through a button so that I can send them to others or share them on social media with ease
+
+#### [**EPIC 10:**](https://github.com/MrMarlonM/good-world-news/issues/37) Breaking News
+- [**USER STORY:**](https://github.com/MrMarlonM/good-world-news/issues/38) As a editor I can add an article as breaking news so that I can inform users easily and fast about important news
 
 ## Technologies Used
 ### Languages
