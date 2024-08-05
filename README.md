@@ -91,7 +91,7 @@ To make sure the interests of the target audience are met, the following Epics w
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): To style the website.
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): The markup language for the website.
 
-### Frameworks and Libaries
+### Frameworks and Libraries
 - [Django](https://www.djangoproject.com/): The framework used for the logic behind the project.
 - [Bootstrap](https://getbootstrap.com/): The library used for styling and customization.
 
@@ -108,9 +108,9 @@ To make sure the interests of the target audience are met, the following Epics w
 - [VS Code](https://code.visualstudio.com/): As Code Editor
 - [Gitpod](https://www.gitpod.io/): As Virtual Development Environment
 - [Pip3](https://pypi.org/project/pip/): As package manager for dependencies.
-- [Allauth](https://django-allauth.readthedocs.io/en/latest/): For authentification of different users.
+- [Allauth](https://django-allauth.readthedocs.io/en/latest/): For authentication of different users.
 - [Spycopg2](https://pypi.org/project/psycopg2/): As database driver to connect to the database.
-- [Gunicorn](https://gunicorn.org/): As webserver to run the website.
+- [Gunicorn](https://gunicorn.org/): As web server to run the website.
 - [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/): As cloud database to store the data.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/): For debugging the Website.
 
@@ -118,22 +118,22 @@ To make sure the interests of the target audience are met, the following Epics w
 To make the website as easily usable as possible and create a calm and pleasant experience, a very minimalistic approach was used. Large open spaces make it easy to focus on the relevant content and let the texts and images on the page be in the spotlight.
 
 ### Color Scheme
-To maintain readability and focus on the words written, a very homgenic color palette with maximal contrast was used.  
+To maintain readability and focus on the words written, a very hormonic color palette with maximal contrast was used.  
 
 ![image of colors used](documentation/colors.webp)  
 
 ### Typography
-As Font for the Title was Sevillana used because of its elegance. To maintain a good readability for all functional text and to website Noto Serif was used. Also the Editors can choose their own font for the articles through Summernote. 
+As Font for the Title was "Sevillana" used because of its elegance. To maintain a good readability for all functional text and to website "Noto Serif" was used. Also the Editors can choose their own font for the articles through Summernote. 
 
 ![image of fonts used](documentation/fonts.webp)
 
 ### Wireframes
-For the Wireframes drawn for this project plese refer to [this PDF](documentation/wireframes-good-world-news.pdf).
+For the Wireframes drawn for this project please refer to [this PDF](documentation/wireframes-good-world-news.pdf).
 
 ## Bugs
 ### Solved Bugs
 - *Bug 1:*  
-When applying height and width to images in the newsfeed, the images didn't render properly and stretched or compressed without keeping the right ratio.  
+When applying height and width to images in the Newsfeed, the images didn't render properly and stretched or compressed without keeping the right ratio.  
 *Solution:*  
 To solve the issue, the `width` was set to a `percent value` and the `height` to `auto`
 
@@ -150,7 +150,7 @@ The cause for this was a typo in the `forms.py` file within the `contact` app. T
 - *Bug 4:*  
 When using `Summernote` to decorate the articles it didn't work and the page was printing all html tags as plain text.  
 *Solution:*  
-The problem arose because of Djangos build in feature to excape HTML content automatically for security reasons. To solve the problem the template filter `safe` was used.
+The problem arose because of Django's build in feature to escape HTML content automatically for security reasons. To solve the problem the template filter `safe` was used.
 
 - *Bug 5:*  
 When deploying the project to `Heroku` it it did not work as expected and the App did not start at all.  
@@ -165,8 +165,12 @@ The problem was that the toggler was part of the header element and not of the b
 ### Unsolved Bugs
 - Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse enormously.
 
+## Mistakes
+- Whilst deploying the project the first few times, I didn't put the local `db.sqlite` database into the `gitignore` file, which exposed it publicly. Since I didn't use the database, no sensible information was shared. To clean up the codebase of the project I later deleted the file altogether.
+
 ## Credits
 - For the navbar of this project I referenced the code of the [Codestar Walkthrough Project](https://github.com/MrMarlonM/django-blog) provided by Code Institute. 
+- For the basic comment section HTML and Javascript implementation I referenced the code of the [Codestar Walkthrough Project](https://github.com/MrMarlonM/django-blog) provided by Code Institute. However, the functionality was widened and I built on top of it.
 
 ## Acknowledgments
 - I want to thank [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for her guidance and support throughout this project.

@@ -15,4 +15,22 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
+   "cSpell.words": [
+      "Allauth",
+      "Balsamiq",
+      "Cloudinary",
+      "Fontawesome",
+      "Freeconvert",
+      "Gunicorn",
+      "herokuapp",
+      "Iuliia",
+      "Konovalova",
+      "Newsfeed",
+      "Pexels",
+      "Sevillana",
+      "Spycopg",
+      "Summernote",
+      "webp",
+      "Wireframes"
+   ],
 }
