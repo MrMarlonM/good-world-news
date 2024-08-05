@@ -1,10 +1,11 @@
 # Good World News
-Live Version:
+Live Version: [Heroku](https://good-world-news-027ba952aa1a.herokuapp.com/)
 
-Repository:
+Repository: [Github](https://github.com/MrMarlonM/good-world-news)
 
-Developed By:
+Developed By: [Marlon Martynkiewitz](www.linkedin.com/in/marlon-martynkiewitz-software-dev)
 
+![Image of Title](documentation/desktop-title.png)
 ## About
 Good World News is the News Website for everyone that needs a dose of positivity. The aim is to provide regular updates about everything positive happening on our planet and beyond. No more, no less.
 
@@ -114,6 +115,9 @@ To make sure the interests of the target audience are met, the following Epics w
 - [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/): As cloud database to store the data.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/): For debugging the Website.
 
+## Features
+For an overview of the provided features, please refer to the [FEATURES](/FEATURES.md).
+
 ## Design
 To make the website as easily usable as possible and create a calm and pleasant experience, a very minimalistic approach was used. Large open spaces make it easy to focus on the relevant content and let the texts and images on the page be in the spotlight.
 
@@ -163,7 +167,9 @@ The toggler for the navigation panel did stop showing at the top when scrolling 
 The problem was that the toggler was part of the header element and not of the body element, also the `height: 100vh` property of the body element needed to be removed to allow for the toggler to stay visible all the way down to the bottom of the page.
 
 ### Unsolved Bugs
-- Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse enormously.
+- Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse.
+
+- When a user makes a mistake whilst logging in or registering and submits the respective form, the page just reloads and empties the form, but no message is presented to the user. The allauth plugin seems to be not working correctly here. A possible problem could be the template handling or the deletion of some needed files.
 
 ## Mistakes
 - Whilst deploying the project the first few times, I didn't put the local `db.sqlite` database into the `gitignore` file, which exposed it publicly. Since I didn't use the database, no sensible information was shared. To clean up the codebase of the project I later deleted the file altogether.
