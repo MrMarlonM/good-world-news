@@ -1,5 +1,6 @@
 from django.urls import reverse
 from allauth.account.adapter import DefaultAccountAdapter
+from django.contrib import messages
 
 class CustomAccountAdapter(DefaultAccountAdapter):
     """
@@ -23,3 +24,11 @@ class CustomAccountAdapter(DefaultAccountAdapter):
             return reverse('admin:index')
         else:
             return reverse('home')
+        
+    def authentication_failed(self, request, **kwargs):
+        """
+        Handles failed authentication attempts.
+
+        Adds an error message to the request context.
+        """
+        messages.error(request, 'Invalid username or password. Please try again.')

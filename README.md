@@ -116,22 +116,22 @@ To make sure the interests of the target audience are met, the following Epics w
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/): For debugging the Website.
 
 ### Python packages
-asgiref==3.8.1
-cloudinary==1.36.0
-dj-database-url==0.5.0
-dj3-cloudinary-storage==0.0.6
-Django==4.2.14
-django-allauth==0.57.2
-django-summernote==0.8.20.0
-gunicorn==20.1.0
-oauthlib==3.2.2
-psycopg2==2.9.9
-PyJWT==2.8.0
-python3-openid==3.2.0
-requests-oauthlib==2.0.0
-sqlparse==0.5.1
-urllib3==1.26.19
-whitenoise==6.7.0
+- asgiref==3.8.1
+- cloudinary==1.36.0
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- Django==4.2.14
+- django-allauth==0.57.2
+- django-summernote==0.8.20.0
+- gunicorn==20.1.0
+- oauthlib==3.2.2
+- psycopg2==2.9.9
+- PyJWT==2.8.0
+- python3-openid==3.2.0
+- requests-oauthlib==2.0.0
+- sqlparse==0.5.1
+- urllib3==1.26.19
+- whitenoise==6.7.0
 
 ## Features
 For an overview of the provided features, please refer to the [FEATURES](/FEATURES.md).
@@ -152,12 +152,28 @@ As Font for the Title was "Sevillana" used because of its elegance. To maintain 
 ### Wireframes
 For the Wireframes drawn for this project please refer to [this PDF](documentation/wireframes-good-world-news.pdf).
 
+## Entity Relationship Model
+For the project the following entity relationship model is applicable.
+
+![Entity Relationship Model](documentation/entity-relationship-model.png)
+
+### Article Model
+- Stores news articles, each with:
+    - A unique `title` and `slug`
+    - `content` and an optional `excerpt` for the article's body and summary
+    - A `featured_image` stored on Cloudinary
+    - A `created_on` timestamp
+    - A `status` to indicate if it's a draft or published
+    - An `is_breaking_news` field to allow for displaying as such in the news feed
+- Connects to:
+    - `User` model via `author` (ForeignKey)
+
 ## Bugs
 ### Solved Bugs
 - *Bug 1:*  
 When applying height and width to images in the Newsfeed, the images didn't render properly and stretched or compressed without keeping the right ratio.  
 *Solution:*  
-To solve the issue, the `width` was set to a `percent value` and the `height` to `auto`
+To solve the issue, the `width` was set to a `percent value` and the `height` to `auto`.
 
 - *Bug 2:*  
 When using a url variable `contact_url` in the `base.html` template, it didn't work as intended and couldn't find the corresponding url.  
@@ -184,10 +200,13 @@ The toggler for the navigation panel did stop showing at the top when scrolling 
 *Solution:*
 The problem was that the toggler was part of the header element and not of the body element, also the `height: 100vh` property of the body element needed to be removed to allow for the toggler to stay visible all the way down to the bottom of the page.
 
+- *Bug 7:*  
+When a user attempted to log in with incorrect credentials, the login form simply reloaded without providing any feedback or error message. This lack of feedback could lead to user confusion and frustration.  
+*Solution:*  
+The issue was traced to a custom allauth adapter that handled login redirects but did not include error handling for failed login attempts. To address this, the `authentication_failed` method was added to the custom adapter. This method now displays a clear error message using Django's messages framework, informing the user that their login credentials were invalid.
+
 ### Unsolved Bugs
 - Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse.
-
-- When a user makes a mistake whilst logging in or registering and submits the respective form, the page just reloads and empties the form, but no message is presented to the user. The allauth plugin seems to be not working correctly here. A possible problem could be the template handling or the deletion of some needed files.
 
 ## Testing
 Please refer to the [TESTING.md](/TESTING.md) file for test related documentation of the project.
