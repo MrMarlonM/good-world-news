@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center pt-5">
+            <h1 class="pt-5">Something Went Wrong</h1>
+            <p class="fs-4">We apologize for the inconvenience. An unexpected error has occurred.</p>
+            <p class="fs-4">Please try again later or contact us if the problem persists.</p>
+            <a href="{% url 'home' %}" class="btn btn-secondary fs-4">Go Back to Homepage</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
