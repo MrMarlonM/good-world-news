@@ -4,32 +4,60 @@
 {% block content %}
 <!--Template for the about page. Any changes to the about page must be done here-->
 <div class="container">
-    <div class="row pt-3">
-        <h2 class="text-center">About Us</h2>
-        <p class="text-center">Welcome to Good World News, your daily dose of sunshine in the digital world! We're a
-            passionate team of
-            storytellers, dedicated to bringing you uplifting news and heartwarming tales from around the globe.</p>
-    </div>
-    <div class="row p-3">
-        <h3 class="text-center">Spreading Smiles and Positive News, One Story at a Time</h3>
-        <p>In a world that can sometimes feel overwhelming, we believe in the power of positivity. Our mission is to
-            share stories that inspire, motivate, and remind us all of the good that exists in humanity. We strive to be
-            a beacon of hope, a source of joy, and a platform for celebrating the extraordinary in the ordinary.</p>
-        <p>As a new online news provider, we're committed to delivering high-quality content that informs, entertains,
-            and sparks meaningful conversations. We believe that news doesn't have to be all doom and gloom. By focusing
-            on uplifting stories and highlighting positive initiatives, we aim to create a more optimistic and hopeful
-            outlook on the world.</p>
-        <p>Join us on this journey as we explore the brighter side of life. From heartwarming acts of kindness to
-            inspiring community projects, we'll bring you stories that will make you smile, laugh, and believe in the
-            power of the human spirit.</p>
-        <p class="text-center fs-5">Together, let's make the world a happier place, one story at a time.</p>
-        <p class="text-center fs-5">Because at Good World News, we believe that happiness is contagious, and we're here to spread it far and
-            wide.</p>
-    </div>
-    <div class="row pb-3">
-        <img src="{% static 'images/happy-people.webp' %}" alt="Happy people jumping in the air">
-    </div>
-
+    <article class="row d-flex justify-content-center">
+        <div class="col-10">
+            <div class="row d-flex justify-content-between p-3">
+                <div class="col-lg-5">
+                    <h2 class="text-center my-3">About Us</h2>
+                    <hr>
+                    <p class="pe-5">
+                        <strong>Welcome to Good World News, your daily dose of sunshine in the digital world! We're a
+                            passionate team of storytellers, dedicated to bringing you uplifting news and heartwarming
+                            tales
+                            from around the globe.</strong>
+                    </p>
+                </div>
+                <div class="col-lg-7 mt-3">
+                    <img class="image-article" src="{% static 'images/happy-people.webp' %}"
+                        alt="Happy people jumping in the air" />
+                </div>
+            </div>
+            <div class="row p-3 my-3">
+                <hr>
+                <h3>Spreading Smiles and Positive News, One Story at a Time</h3>
+                <p>In a world that can sometimes feel overwhelming, we believe in the power of positivity. Our mission
+                    is to
+                    share stories that inspire, motivate, and remind us all of the good that exists in humanity. We
+                    strive
+                    to be a beacon of hope, a source of joy, and a platform for celebrating the extraordinary in the
+                    ordinary.
+                </p>
+                <p>
+                    As a new online news provider, we're committed to delivering high-quality content that informs,
+                    entertains, and sparks meaningful conversations. We believe that news doesn't have to be all doom
+                    and
+                    gloom. By focusing on uplifting stories and highlighting positive initiatives, we aim to create a
+                    more
+                    optimistic and hopeful outlook on the world.
+                </p>
+                <p>
+                    Join us on this journey as we explore the brighter side of life. From heartwarming acts of kindness
+                    to
+                    inspiring community projects, we'll bring you stories that will make you smile, laugh, and believe
+                    in
+                    the power of the human spirit.
+                </p>
+                <p>
+                    Together, let's make the world a happier place, one story at a time.
+                </p>
+                <p>
+                    Because at Good World News, we believe that happiness is contagious, and we're here to spread it far
+                    and
+                    wide.
+                </p>
+            </div>
+        </div>
+    </article>
 </div>
 
 {% endblock %}
