@@ -26,7 +26,12 @@ def article_list(request):
     breaking_news = Article.objects.filter(is_breaking_news=True, status=1).order_by('-created_on')
     articles = Article.objects.filter(is_breaking_news=False, status=1).order_by('-created_on')
 
-    liked_article_ids = list(Like.objects.filter(user=request.user, content_type=ContentType.objects.get_for_model(Article)).values_list('object_id', flat=True))
+    liked_article_ids = []
+    if request.user.is_authenticated:
+        liked_article_ids = list(Like.objects.filter(
+            user=request.user,
+            content_type=ContentType.objects.get_for_model(Article)
+            ).values_list('object_id', flat=True))
 
     context = {
         'breaking_news': breaking_news,
@@ -81,6 +86,15 @@ def article_detail(request, slug):
     
     comment_form = CommentForm() 
 
+    if request.user.is_authenticated:
+        existing_like = Like.objects.filter(
+            user=request.user, 
+            content_type=ContentType.objects.get_for_model(Article), 
+            object_id=article.id
+        ).first()
+    else:
+        existing_like = None
+
     context = {
         'article': article,
         'comments': comments,
@@ -88,7 +102,7 @@ def article_detail(request, slug):
         'user': request.user,
         'number_of_likes': article.number_of_likes(),
         'is_moderator': request.user.groups.filter(name='Moderator').exists(),
-        'existing_like': Like.objects.filter(user=request.user, content_type=ContentType.objects.get_for_model(Article), object_id=article.id).first()
+        'existing_like': existing_like,
     }
 
     return render(
