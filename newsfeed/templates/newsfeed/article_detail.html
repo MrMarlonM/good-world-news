@@ -28,10 +28,17 @@
                     Published on {{ article.created_on }} by {{ article.author }}
                 </p>
                 {% if user.is_authenticated %}
+                {% if existing_like %}
+                <a class="fs-3 text-decoration-none text-dark" href="{% url 'article_like' article.slug %}">
+                    <i class="fa-solid fa-heart fa-heart--login"></i>
+                    <span>{{ number_of_likes }}</span>
+                </a>
+                {% else %}
                 <a class="fs-3 text-decoration-none text-dark" href="{% url 'article_like' article.slug %}">
                     <i class="far fa-heart fa-heart--login"></i>
                     <span>{{ number_of_likes }}</span>
                 </a>
+                {% endif %} 
                 {% else %}
                 <p class="fs-3 text-decoration-none text-dark">
                     <i class="far fa-heart"></i>

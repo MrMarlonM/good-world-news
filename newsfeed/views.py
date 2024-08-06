@@ -25,9 +25,13 @@ def article_list(request):
     """
     breaking_news = Article.objects.filter(is_breaking_news=True, status=1).order_by('-created_on')
     articles = Article.objects.filter(is_breaking_news=False, status=1).order_by('-created_on')
+
+    liked_article_ids = list(Like.objects.filter(user=request.user, content_type=ContentType.objects.get_for_model(Article)).values_list('object_id', flat=True))
+
     context = {
         'breaking_news': breaking_news,
         'articles': articles,
+        'liked_article_ids': liked_article_ids,
     }
     return render(request, 'newsfeed/index.html', context)
 
@@ -84,6 +88,7 @@ def article_detail(request, slug):
         'user': request.user,
         'number_of_likes': article.number_of_likes(),
         'is_moderator': request.user.groups.filter(name='Moderator').exists(),
+        'existing_like': Like.objects.filter(user=request.user, content_type=ContentType.objects.get_for_model(Article), object_id=article.id).first()
     }
 
     return render(
@@ -212,7 +217,7 @@ def article_like(request, slug):
     - slug: The slug of the article to be liked/unliked.
 
     Returns:
-    - HttpResponseRedirect: Redirects back to the referring page (the article detail page in this case).
+    - HttpResponseRedirect: Redirects back to the referring page.
     """
     articles = Article.objects.filter(status=1)
     article = get_object_or_404(articles, slug=slug)
@@ -231,7 +236,7 @@ def article_like(request, slug):
             'You liked the article successfully.'
         )
     
-    return HttpResponseRedirect(reverse('article_detail', args=[slug]))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 @login_required
