@@ -29,13 +29,15 @@
                 </p>
                 {% if user.is_authenticated %}
                 <a class="fs-3 text-decoration-none text-dark" href="{% url 'article_like' article.slug %}">
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart fa-heart--login"></i>
                     <span>{{ number_of_likes }}</span>
                 </a>
                 {% else %}
-                <p>To like an article you must <a href="{% url 'account_login' %}">login.</a></p>
-                <i class="far fa-heart"></i>
-                <span>{{ number_of_likes }}</span>
+                <p class="fs-3 text-decoration-none text-dark">
+                    <i class="far fa-heart"></i>
+                    <span>{{ number_of_likes }}</span>
+                </p>
+                <p class="ps-2">- To like an article you must <a href="{% url 'account_login' %}">login</a> -</p>
                 {% endif %}
             </div>
         </div>

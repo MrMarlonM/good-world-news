@@ -68,7 +68,7 @@ header, footer {
   color: red;
 }
 
-.fa-heart:hover {
+.fa-heart--login:hover {
   color: rgba(255, 0, 0, 0.432);
 }
 
