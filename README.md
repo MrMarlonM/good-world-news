@@ -136,6 +136,16 @@ To make sure the interests of the target audience are met, the following Epics w
 ## Features
 For an overview of the provided features, please refer to the [FEATURES](/FEATURES.md).
 
+## Future Development
+A few features weren't implemented for various reasons and remain in the Future Development section.  
+Here is a short overview of the functionalities to potentially come in the future:
+- [Seamless endless scroll](https://github.com/MrMarlonM/good-world-news/issues/25) that loads new articles in the newsfeed when scrolling further down.
+- [More extensive About page](https://github.com/MrMarlonM/good-world-news/issues/19) through a written mission statement and a values section.
+- [Ability to share articles](https://github.com/MrMarlonM/good-world-news/issues/5) through an extra button under each article.
+- [Web analytics](https://github.com/MrMarlonM/good-world-news/issues/18) for the site owners for feedback, which leads to the creation of more meaningful content.
+- [Password changing for users without support](https://github.com/MrMarlonM/good-world-news/issues/7) so that they can do it on their own when needed.
+- [Sorting articles](https://github.com/MrMarlonM/good-world-news/issues/26) for likes, comments etc. on the newsfeed
+
 ## Design
 To make the website as easily usable as possible and create a calm and pleasant experience, a very minimalistic approach was used. Large open spaces make it easy to focus on the relevant content and let the texts and images on the page be in the spotlight.
 
@@ -151,6 +161,22 @@ As Font for the Title was "Sevillana" used because of its elegance. To maintain 
 
 ### Wireframes
 For the Wireframes drawn for this project please refer to [this PDF](documentation/wireframes-good-world-news.pdf).
+
+## Agile Methodology
+This project embraced Agile principles throughout its development, ensuring flexibility, adaptability, and a user-centric focus. Here's a breakdown of the Agile practices employed:
+- **User Stories and Acceptance Criteria:** User stories were used to capture functional requirements from the user's perspective. Each story included clear acceptance criteria to define the conditions for completion.
+
+- **Task Breakdown:** User stories were further broken down into actionable tasks, providing a granular view of the work involved.
+
+- **Product Backlog Prioritization:** User stories were prioritized in the product backlog based on their importance and value to the project, ensuring that the most crucial features were addressed first.
+
+- **Iteration Planning with MoSCoW:** Two iterations (sprints) were planned, with user stories selected based on priority and team capacity. The MoSCoW method (Must-have, Should-have, Could-have, Won't-have) was used to prioritize stories within each sprint.
+
+- **GitHub Projects Kanban Board:** A Kanban board was created in GitHub Projects to visualize and manage the workflow. Columns included "Bug," "To Do," "In Progress," "Done," and "Future Development," allowing for clear progress tracking.
+
+- **Continuous Refinement:** The backlog was continuously refined throughout the project, with user stories being added, modified, or re-prioritized based on feedback and evolving needs.
+
+This Agile approach allowed for flexibility, frequent feedback, and iterative development, ensuring the final product delivered maximum value to users.
 
 ## Entity Relationship Model
 For the project the following entity relationship model is applicable.
@@ -200,7 +226,7 @@ For the project the following entity relationship model is applicable.
 **Note on the Like Model:** Technically the Like functionality could be widened to include comments, since the GenericForeignKey used could link to the comment model trough the same functionality.
 
 ### Contact Form Model
-- Stores data from teh contact form submissions, each with:
+- Stores data from the contact form submissions, each with:
     - `name` of the user
     - `email` of the user
     - `message` of the user
