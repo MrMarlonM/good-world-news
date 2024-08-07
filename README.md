@@ -166,7 +166,46 @@ For the project the following entity relationship model is applicable.
     - A `status` to indicate if it's a draft or published
     - An `is_breaking_news` field to allow for displaying as such in the news feed
 - Connects to:
-    - `User` model via `author` (ForeignKey)
+    - `User` model via `author` (ForeignKey): An article is written by one user.
+    - `User` model via `likes` (ManyToManyField): Multiple users can like an article.
+    - `Comment` model (reverse relationship): An article can have multiple comments.
+    - `Like` model (reverse relationship via GenericForeignKey): An article can be liked by multiple users.
+
+### Comment Model
+- Stores comments on articles, each with:
+    - `content` which is the text of the comment
+    - `approved` which is a boolean value
+    - `created_on` which is a timestamp
+- Connects to:
+    - `Article` model via `article` (ForeignKey): A comment belongs to one article.
+    - `User` model via `author` (ForeignKey): A comment is written by one user.
+
+### User Model (Django's built in)
+- Represents users of all kind, each the following key attributes:
+    - `username` which is required and must be unique
+    - `email` which is optional
+    - `password`
+    - `is_staff` which allows for access to the admin panel
+    - `is_superuser` for full admin right
+- Connects to:
+    - `Article` model (reverse relationship): A user can author multiple articles
+    - `Comment` model (reverse relationship): A user can write multiple comments
+    - `Like` model: A user can like multiple articles.
+
+### Like Model:
+- Tracks likes on articles and connect to the following:
+    - `User` model via `user` (Foreign Key): A like is given by one user.
+    - `Article` model via `content_object` (GenericForeignKey): One like is associated with one article.  
+
+**Note on the Like Model:** Technically the Like functionality could be widened to include comments, since the GenericForeignKey used could link to the comment model trough the same functionality.
+
+### Contact Form Model
+- Stores data from teh contact form submissions, each with:
+    - `name` of the user
+    - `email` of the user
+    - `message` of the user
+    - `reason` which is selected of predefined choices
+    - `created_on` which is a timestamp
 
 ## Bugs
 ### Solved Bugs
