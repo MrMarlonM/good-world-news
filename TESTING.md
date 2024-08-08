@@ -6,11 +6,15 @@
     - Through a checkbox I can easily add or un-add articles as breaking news
     - The article shows prominently at the top of the page
 - Manual Steps:
-    - d
+    - Log in as editor
+    - Navigate to an article in the admin panel and click on edit
+    - Check the box `is breaking news`
+    - Safe the article
 - Expected Outcome:
-    - d
+    - Now the article is presented as breaking news in the newsfeed
+    - It has a banner breaking news at the top
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [User-friendly design](https://github.com/MrMarlonM/good-world-news/issues/23)
 - Acceptance Criteria:
@@ -19,11 +23,16 @@
     - Images adjust their size accordingly
     - The elements position themselves according to the screen size
 - Manual Steps:
-    - d
+    - Open the website in Google Chrome for Desktop
+    - Right click on the site and click on inspect
+    - Click on the Device Toolbar option in dev tools
+    - Adjust the shown screen size from big to small
+    - Look out for images and texts on all pages
 - Expected Outcome:
-    - d
+    - The images, container and texts change their size and/or position according to the screen size.
+    - Everything stays readable and is presented in a nice fashion
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Newsfeed on homepage](https://github.com/MrMarlonM/good-world-news/issues/24)
 - Acceptance Criteria:
@@ -32,11 +41,16 @@
     - The title, short description and image can be seen
     - When clicked on, the articles opens in full
 - Manual Steps:
-    - d
+    - Go to the index.html page
+    - Look for the published articles and compare it to the articles seen in the admin panel
+    - See if all have a title, description and image
+    - Click on the articles to see if they open
 - Expected Outcome:
-    - d
+    - All published articles are shown
+    - All articles have titles, short descriptions and images
+    - All articles open in detail when clicked on
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Manage user accounts as admin](https://github.com/MrMarlonM/good-world-news/issues/14)
 - Acceptance Criteria:
@@ -44,11 +58,17 @@
     - The administrator can edit user accounts
     - The administrator can delete user accounts
 - Manual Steps:
-    - d
+    - Log in to the admin panel as admin account
+    - Click on section Users
+    - Click on a specific user
+    - Try to edit the user
+    - Try to delete the user
 - Expected Outcome:
-    - d
+    - All users are listed
+    - The admin can edit user accounts
+    - The admin can delete user accounts
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Create Articles as editor](https://github.com/MrMarlonM/good-world-news/issues/10)
 - Acceptance Criteria:
@@ -56,33 +76,43 @@
     - It is possible to add a picture
     - It is possible to add a short description
 - Manual Steps:
-    - d
+    - Log into the admin panel as editor
+    - Click on `+Add` next to articles
+    - Test if the text in the content section and excerpt section is customizable
+    - Add a image
+    - Safe article as published and check the website
 - Expected Outcome:
-    - d
+    - The image shows with the uploaded image and the styled text
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Edit Articles as editor](https://github.com/MrMarlonM/good-world-news/issues/11)
 - Acceptance Criteria:
     - All articles can be changed
     - The text, title and short description are changeable as well as the image
 - Manual Steps:
-    - d
+    - Log in as editor
+    - Click on articles and then on an existing article
+    - CHange the title, text, excerpt and image
+    - Safe the article as published
 - Expected Outcome:
-    - d
+    - The article is now shown with all the changes
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Delete Articles as editor](https://github.com/MrMarlonM/good-world-news/issues/12)
 - Acceptance Criteria:
-    - It is possible to delete own articles in the editor dashboard
+    - It is possible to delete articles in the editor dashboard
     - After deletion the article is not visible anymore as well as all linked comments.
 - Manual Steps:
-    - d
+    - Log in as editor
+    - Go to the admin panel and click on Articles
+    - Click on one article
+    - Scroll down and click on delete in the bottom right corner
 - Expected Outcome:
-    - d
+    - The article gets deleted and isn't shown anymore
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Login form for registered users](https://github.com/MrMarlonM/good-world-news/issues/6)
 - Acceptance Criteria:
@@ -90,33 +120,48 @@
     - Once logged in the User can use all the provided functions.
     - The log in button is found in the menu
 - Manual Steps:
-    - d
+    - Click on Login in the menu
+    - Log in as user
+    - Click on an article
+    - Like/Unlike article
+    - Comment article
+    - Edit comment
+    - Delete comment
+    - Go back to newsfeed and like/unlike article
 - Expected Outcome:
-    - d
+    - User can login and is redirected to newsfeed
+    - Articles are likable and unlikable
+    - Comment are writable, editable and deletable.
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Registration Form](https://github.com/MrMarlonM/good-world-news/issues/2)
 - Acceptance Criteria:
     - A form is provided to fill in name, email and password for registration
     - After registration the user can directly log into the created account
 - Manual Steps:
-    - d
+    - Make sure to be logged out
+    - Click on Register in Menu
+    - Fill in information and click on `Sign Up`
 - Expected Outcome:
-    - d
+    - The account is created
+    - The user is directly logged in
+    - The user is redirected to index.
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Login form for editor](https://github.com/MrMarlonM/good-world-news/issues/8)
 - Acceptance Criteria:
     - A login form is provided for editors
     - After logging in the editor can access the editor dashboard
 - Manual Steps:
-    - d
+    - Click on login
+    - Insert credentials of editor
+    - Click on `Sign In`
 - Expected Outcome:
-    - d
+    - The editor is redirected to the editor board
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Mobile-friendly navigation](https://github.com/MrMarlonM/good-world-news/issues/22)
 - Acceptance Criteria:
@@ -125,24 +170,39 @@
     - Buttons and links are clearly stated as such and distinct from other content
     - Buttons are big enough to be pressed on a touch screen
 - Manual Steps:
-    - d
+    - Go to index.html on mobile device
+    - Click in the right top corner on the Menu bars
+    - Look if the menu is readable and the links are clickable
+    - Go back to index.html and look if the buttons are big enough.
+    - Go to contact page and see if the form and button is big enough and readable
+    - Go to login and see if the form and button is big enough and readable
+    - Go to register and see if the form and button is big enough and readable
+    - Click on an article and scroll down to the comment section
+    - See if the comment form is big enough
+    - Post a comment and see if the buttons for edit and delete are big enough and readable
 - Expected Outcome:
-    - d
+    - The menu opens when toggling the Menu bar in the corner
+    - The buttons are all clickable and readable
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Contact Form](https://github.com/MrMarlonM/good-world-news/issues/27)
 - Acceptance Criteria:
     - A feedback form is provided
     - The name, mail and message can be put in
     - The message is visible to the administrator
-    - The administrator is notified when a new message gets sent.
 - Manual Steps:
-    - d
+    - Click on contact
+    - See if the option to provide the name, email and message is provided
+    - Fill out the form and press "Send message"
+    - Login as admin
+    - Click on messages and see if the message appears
 - Expected Outcome:
-    - d
+    - The contact site exists
+    - The fields are present
+    - When submitting the form the message shows up in the admin panel
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 ### Iteration 2
 #### User Story: [Website accessibility](https://github.com/MrMarlonM/good-world-news/issues/21)
