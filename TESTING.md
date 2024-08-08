@@ -265,6 +265,9 @@
 
 ## Code Validation
 ### HTML
+The HTML code of the project was validated using the [W3C Markup Validation Service](https://validator.w3.org/).
+
+Please refer to [this PDF](documentation/html-validation.pdf) containing all testing documentation.
 
 ### CSS
 The CSS code of the project was verified using the [W3 jigsaw verification tool](https://jigsaw.w3.org/css-validator/).
