@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */ 
+/* globals bootstrap */
 /**
  * The whole javascript for the comment functionality was copied from the
  * CodeInstitute Codestar-Blog Walkthrough project. For more information 
