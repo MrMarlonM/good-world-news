@@ -267,10 +267,16 @@
 ### HTML
 
 ### CSS
+The CSS code of the project was verified using the [W3 jigsaw verification tool](https://jigsaw.w3.org/css-validator/).
+
+![CSS jigsaw verification](documentation/css-validation.png)
 
 ### JavaScript
+The Javascript code used in this project was verified using the [JS Hint](https://jshint.com/) linter.
+
+![JS Hint verification](documentation/js-hint-comments.png)
 
 ### Python
-
+For validation of the python code written throughout the project, please refer to the [Python Testing PDF](documentation/python-validation.pdf).
 ### Performance (Google Lighthouse)
 
