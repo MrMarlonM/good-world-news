@@ -12,12 +12,12 @@
             </div>
             {% if new.image and "placeholder" not in new.image.url %}
             <div class="d-flex justify-content-center">
-                <img class="image-index" src="{{ new.image.url }}" alt="{{ new.title }}" />
+                <img class="image-index" src="{{ new.image.url }}" alt="{{ new.title }}">
             </div>
             {% endif %}
             <div class="card-body">
                 <h2 class="card-title text-center">{{ new.title }}</h2>
-                <p class="card-text text-center">{{ new.excerpt|safe }}</p>
+                <div class="card-text text-center">{{ new.excerpt|safe }}</div>
                 <div class="d-flex justify-content-center">
                     <a href="{% url 'article_detail' new.slug %}" class="btn btn-secondary"
                         aria-label="click on the article to open it">Click Here To Read More</a>
@@ -52,12 +52,12 @@
             <div class="card">
                 {% if article.image and "placeholder" not in article.image.url %}
                 <div class="d-flex justify-content-center">
-                    <img class="image-index mt-3" src="{{ article.image.url }}" alt="{{ article.title }}" />
+                    <img class="image-index mt-3" src="{{ article.image.url }}" alt="{{ article.title }}">
                 </div>
                 {% endif %}
                 <div class="card-body">
                     <h3 class="card-title text-center">{{ article.title }}</h3>
-                    <p class="card-text text-center">{{ article.excerpt|safe }}</p>
+                    <div class="card-text text-center">{{ article.excerpt|safe }}</div>
                     <div class=" d-flex justify-content-center">
                         <a href="{% url 'article_detail' article.slug %}" class="btn btn-secondary"
                             aria-label="click on the article to open it">Click Here To Read More</a>

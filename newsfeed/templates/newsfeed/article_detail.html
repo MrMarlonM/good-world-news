@@ -10,19 +10,19 @@
                 <div class="col-lg-5">
                     <h2 class="text-center my-3">{{ article.title }}</h2>
                     <hr>
-                    <p class="pe-5">
-                        <strong>{{ article.excerpt|safe }}</strong>
-                    </p>
+                    <div class="pe-5 fw-bolder">
+                        {{ article.excerpt|safe }}
+                    </div>
                 </div>
                 {% if article.image and "placeholder" not in article.image.url %}
                 <div class="col-lg-7 mt-3">
-                    <img class="image-article" src="{{ article.image.url }}" alt="{{ article.title }}" />
+                    <img class="image-article" src="{{ article.image.url }}" alt="{{ article.title }}">
                 </div>
                 {% endif %}
             </div>
             <div class="row p-3 my-3">
                 <hr>
-                <p>{{ article.content|safe }}</p>
+                <div>{{ article.content|safe }}</div>
                 <hr>
                 <p class="card-text text-muted h6">
                     Published on {{ article.created_on }} by {{ article.author }}
