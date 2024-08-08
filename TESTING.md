@@ -261,7 +261,18 @@
 
 ## Automated Testing
 
-## Browser and Device Compatibility
+## Browser Compatibility
+The website was tested on the following browsers to ensure cross-browser compatibility and consistent functionality:
+- Desktop:
+    - Google Chrome
+    - Firefox
+    - Microsoft Edge
+- Mobile:
+    - Chrome for Android
+    - Safari for OS
+    - Opera for Android
+
+The website displayed and functioned correctly across all tested browsers and devices, providing a seamless user experience regardless of the platform.
 
 ## Code Validation
 ### HTML
