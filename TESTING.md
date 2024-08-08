@@ -281,5 +281,19 @@ The Javascript code used in this project was verified using the [JS Hint](https:
 
 ### Python
 For validation of the python code written throughout the project, please refer to the [Python Testing PDF](documentation/python-validation.pdf).
-### Performance (Google Lighthouse)
 
+### Performance (Google Lighthouse)
+The performance of the website was tested using [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview).
+
+Whilst the score was mostly good, the performance was a little slower on mobile devices through the images not being optimized for smaller screens.  
+However, through using the `Cloudinary` integration for Django it will be possible to automatically optimize images for screen sizes and internet speed but for this stage of the project I did not look further into it.  
+The same is true for not optimal Best Practices score. This comes through Cloudinary using third-party-cookies on the website and sending images over as http instead of https.  
+Both problems which should be solvable in a future edition of the website through refining the Cloudinary implementation.
+
+![Image of lighthouse score on desktop](documentation/lighthouse-desktop.png)
+
+![Image of lighthouse score on mobile](documentation/lighthouse-mobile.png)
+
+![Image of lighthouse logs about cloudinary](documentation/lighthouse-log.png)
+
+Please click [here](/README.md) to get back to the README.
