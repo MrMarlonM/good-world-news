@@ -22,5 +22,6 @@ class CommentAdmin(SummernoteModelAdmin):
     list_display = ('author', 'article', 'created_on', 'approved')
     list_filter = ('author', 'created_on', 'approved')
 
+
 # Registration of Like model
 admin.site.register(Like)

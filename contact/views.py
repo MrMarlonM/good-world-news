@@ -7,7 +7,8 @@ def contact_form(request):
     """
     Handles the rendering and submission of the contact form.
 
-    - GET requests: Renders the contact form template with an empty form instance.
+    - GET requests: Renders the contact form template with an empty
+                    form instance.
     - POST requests: Processes the submitted contact form data.
         - If the form is valid:
             - Saves the form data to the database.

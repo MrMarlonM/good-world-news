@@ -10,33 +10,41 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Article(models.Model):
     """
-    Represents a news article with title, content, author, publication status, and other metadata.
+    Represents a news article with title, content, author,
+    publication status, and other metadata.
 
     Relationships:
     - `author`: The author of the article (ForeignKey to User).
-    - `likes`: Users who have liked the article (ManyToManyField to User through the Like model).
-    - `comments`: Comments associated with the article (reverse relationship from the Comment model).
+    - `likes`: Users who have liked the article (ManyToManyField to User
+               through the Like model).
+    - `comments`: Comments associated with the article (reverse relationship
+                  from the Comment model).
     """
-    title = models.CharField(validators=[MinLengthValidator(1)], max_length=200, unique=True)
-    slug = models.SlugField(validators=[MinLengthValidator(1)], max_length=200, unique=True)
+    title = models.CharField(
+        validators=[MinLengthValidator(1)], max_length=200, unique=True)
+    slug = models.SlugField(
+        validators=[MinLengthValidator(1)], max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     is_breaking_news = models.BooleanField(default=False)
     image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(validators=[MinLengthValidator(5)], max_length=500, blank=True)
+    excerpt = models.TextField(
+        validators=[MinLengthValidator(5)], max_length=500, blank=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='article_like', blank=True)
+    likes = models.ManyToManyField(
+        User, related_name='article_like', blank=True)
 
     class Meta:
         """
-        Orders articles by their creation date in descending order (newest first).
+        Orders articles by their creation date in descending order.
         """
         ordering = ["-created_on"]
-    
+
     def __str__(self):
         """
-        Returns a string representation of the article in the format "Title by Author".
+        Returns a string representation of the article in the format
+        "Title by Author".
         """
         return f"{self.title} by {self.author}"
 
@@ -54,24 +62,27 @@ class Comment(models.Model):
     Represents a comment on an article.
 
     Relationships:
-    - `article`: The article this comment is associated with (ForeignKey to Article).
+    - `article`: The article this comment is associated with
+                 (ForeignKey to Article).
     - `author`: The user who created the comment (ForeignKey to User).
     """
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments')
+    article = models.ForeignKey(
+        Article, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField(validators=[MinLengthValidator(1)], max_length=500)
+    content = models.TextField(
+        validators=[MinLengthValidator(1)], max_length=500)
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         """
-        Orders comments by their creation date in descending order (newest first).
+        Orders comments by their creation date in descending order.
         """
         ordering = ["-created_on"]
-    
+
     def __str__(self):
         """
-        Returns a string representation of the comment in the format: 
+        Returns a string representation of the comment in the format:
         "Comment on - [article title] - by - [author username] -".
         """
         return f"Comment on - {self.article.title} - by - {self.author} -"
@@ -83,18 +94,22 @@ class Like(models.Model):
 
     Relationships:
     - `user`: The user who liked the content (ForeignKey to User).
-    - `content_type`: The type of content that was liked (ForeignKey to ContentType).
-    - `content_object`: The actual object that was liked (either an Article or a Comment), 
-                        determined dynamically using `content_type` and `object_id`.
+    - `content_type`: The type of content that was liked
+                      (ForeignKey to ContentType).
+    - `content_object`: The actual object that was liked
+                        (either an Article or a Comment would be possible),
+                        determined dynamically using
+                        `content_type` and `object_id`.
     """
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
         """
-        Returns a string representation of the like in the format: 
+        Returns a string representation of the like in the format:
         "Like by [user username] on [liked object __str__]".
         """
         return f"Like by {self.user} on {self.content_object}"
