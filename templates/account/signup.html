@@ -1,38 +1,39 @@
 {% extends "base.html" %}
-
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
-
+{% load allauth i18n %}
+{% load crispy_forms_tags %}
+{% block head_title %}
+{% trans "Signup" %}
+{% endblock head_title %}
 {% block content %}
 <div class="container">
-  <div class="row mt-5 text-center">
-    <h2>{% trans "Sign Up" %}</h2>
-    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
-    </p>
-  </div>
-  <div class="row mb-5 mt-3 d-flex justify-content-center">
-    <div class="col-md-6 col-8">
-      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {% for field in form %}
-        <div class="mb-3">
-          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-          <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.id_for_label }}"
-            class="form-control" {% if field.field.required %}required{% endif %} />
-          {% if field.errors %}
-          <div class="invalid-feedback">
-            {{ field.errors }}
-          </div>
-          {% endif %}
-        </div>
-        {% endfor %}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="btn btn-secondary" type="submit">{% trans "Sign Up" %} &raquo;</button>
-      </form>
+    <div class="row mt-5 text-center">
+        <h2>{% trans "Sign Up" %}</h2>
+        {% setvar link %}
+        <a href="{{ login_url }}">
+            {% endsetvar %}
+            {% setvar end_link %}
+        </a>
+        {% endsetvar %}
+        <p>
+            {% blocktranslate %}
+            Already have an account? Then please {{ link }}sign in{{ end_link }}.
+            {% endblocktranslate %}
+        </p>
     </div>
-  </div>
+    <div class="row my-3 d-flex justify-content-center">
+        <div class="col-md-6 col-8">
+            {% if not SOCIALACCOUNT_ONLY %}
+                {% url 'account_signup' as action_url %}
+                <form method="post" action="{{ action_url }}"> 
+                    {% csrf_token %}
+                    {{ form|crispy }}  
+                    {{ redirect_field }} 
+                    <button class="btn btn-secondary">
+                        {% trans "Sign Up" %}
+                    </button>
+                </form> 
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock content %}
