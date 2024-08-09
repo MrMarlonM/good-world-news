@@ -210,11 +210,17 @@
     - Aria-labels are given for every link
     - Every image has alt-attributes
 - Manual Steps:
-    - d
+    - Open website in google chrome
+    - Right click on the background and choose inspect
+    - Go to the Lighthouse section of Dev Tools
+    - Create report
+    - Ensure that the Accessibility Score is at 100
+    - Ensure in the Passed Audits section of the Accessibility Section of the report that alt attributes and aria-labels where checked
 - Expected Outcome:
-    - d
+    - The score is at 100
+    - Aria-Labels and alt attributes where checked and passed the test
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [About page](https://github.com/MrMarlonM/good-world-news/issues/20)
 - Acceptance Criteria:
@@ -222,33 +228,49 @@
     - Information about the company and the team is found there
     - The information is visible for everyone
 - Manual Steps:
-    - d
+    - Click on the menu toggler
+    - Click on the about link in the menu that opened
+    - Check that the page opens
+    - Check if information about the company and the team is present
 - Expected Outcome:
-    - d
+    - The about page opens and renders the text successfully
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Admin delete comments](https://github.com/MrMarlonM/good-world-news/issues/15)
 - Acceptance Criteria:
     - Every comment can be deleted
     - After deletion the comment is not visible anymore
 - Manual Steps:
-    - d
+    - Login as User 
+    - Click on an article
+    - Submit a comment
+    - Logout
+    - Log in as admin
+    - Navigate to the Comments section
+    - Click on the comment created by user
+    - Delete comment
+    - Click on view site 
+    - Navigate to the commented article
+    - Check that the comment is gone
 - Expected Outcome:
-    - d
+    - When deleted from the admin the comment is not visible anymore
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Change the password as editor](https://github.com/MrMarlonM/good-world-news/issues/9)
 - Acceptance Criteria:
     - Inside the editor dashboard is a button to change the password
     - The change takes place immediately
 - Manual Steps:
-    - d
+    - Log in as editor
+    - Click on change password in the admin panel
+    - Follow the steps to change the password
 - Expected Outcome:
-    - d
+    - The password is changed
+    - The new password can be used to log in
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Like articles](https://github.com/MrMarlonM/good-world-news/issues/4)
 - Acceptance Criteria:
@@ -256,11 +278,22 @@
     - Every user can like each article only once
     - The likes for each article are counted and visible for everybody
 - Manual Steps:
-    - d
+    - Login as user
+    - Navigate to the newsfeed
+    - Click on the like button under an article
+    - Click on the like button again to see that the article is unliked
+    - Try the same for another article
 - Expected Outcome:
-    - d
+    - When clicking on the like button the first time:
+        - The heart gets red
+        - To the like counter one more like is added
+        - A message is shown to the user that the article was liked successful
+    - When clicking on the like button the second time:
+        - The heart becomes hollow again
+        - The like counter is subtracted by one
+        - A message is shown that the article was successfully unliked
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [User comment delete/edit](https://github.com/MrMarlonM/good-world-news/issues/39)
 - Acceptance Criteria:
@@ -269,11 +302,22 @@
     - The deletion asks for confirmation
     - The edit field is the same as the comment field
 - Manual Steps:
-    - d
+    - Login as a user
+    - Click on an article
+    - Scroll down to the comment section
+    - Add a new comment
+    - Check if the delete and edit button are visible under the comment
+    - Click on the edit button
+    - Check if the comment body is transferred back into the comment form
+    - Edit the comment and click on Update
+    - Check if the comment is updated successfully
+    - Click on delete and confirm the deletion in the modal that opens
+    - Check if the comment is deleted 
 - Expected Outcome:
-    - d
+    - When editing a comment the comment is edited successfully
+    - When deleting a comment a modal opens to ask for confirmation and when confirming the comment is deleted
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Commenting on articles](https://github.com/MrMarlonM/good-world-news/issues/3)
 - Acceptance Criteria:
@@ -281,43 +325,68 @@
     - Every article can be commented by every user
     - A confirmation that the comment was submitted or that there was an error is provided
 - Manual Steps:
-    - d
+    - Login as user
+    - Click on an article
+    - Scroll down and check if a comment form is provided
+    - Fill out the form and click on submit
+    - Check if a confirmation message is shown
+    - Check if the comment is posted
 - Expected Outcome:
-    - d
+    - When clicking on submit a message is shown
+    - The comment is posted and awaiting approval
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Admin comment approval](https://github.com/MrMarlonM/good-world-news/issues/17)
 - Acceptance Criteria:
     - Comments need to be approved before they are visible
 - Manual Steps:
-    - d
+    - Log in as user
+    - Click on an article
+    - Submit a new comment
+    - Check that the comment awaits approval
+    - Login as different user
+    - Click on same article
+    - Check if the comment is visible
 - Expected Outcome:
-    - d
+    - The comment is only visible to the creator
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Moderator comment approvement](https://github.com/MrMarlonM/good-world-news/issues/16)
 - Acceptance Criteria:
     - Before a comment is visible publicly it must be approved
-    - Moderators and admins are notified of new comments that are awaiting approval
+    - Moderators can approve comments with a button under the unapproved comments
 - Manual Steps:
-    - d
+    - Log in as moderator
+    - Click on the same article the user commented earlier
+    - Check the comment section if the comment is visible
+    - Check if the approve button is visible
+    - Click on approve
+    - See if the comment is approved
+    - Log in as a third user
+    - Check the same article for the now approved comment
 - Expected Outcome:
-    - d
+    - The moderator can see the unapproved comment
+    - The comment is approvable through a button under the comment
+    - When clicked on the button the comment is approved and visible to everybody
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 #### User Story: [Delete comments as moderator](https://github.com/MrMarlonM/good-world-news/issues/13)
 - Acceptance Criteria:
-    - A moderator can delete any content
+    - A moderator can delete any comment
     - After deletion a comment is not visible anymore
 - Manual Steps:
-    - d
+    - Log in as moderator
+    - Click on the article with the approved comment
+    - Click on the delete button under the comment
+    - Confirm the deletion
 - Expected Outcome:
-    - d
+    - The comment is deleted
+    - The comment is not visible anymore
 - Actual Outcome:
-    - d
+    - The expected outcome was fulfilled
 
 ## Automated Testing
 
