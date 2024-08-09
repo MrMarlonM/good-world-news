@@ -270,6 +270,11 @@ When a user attempted to log in with incorrect credentials, the login form simpl
 *Solution:*  
 The issue was traced to a custom allauth adapter that handled login redirects but did not include error handling for failed login attempts. To address this, the `authentication_failed` method was added to the custom adapter. This method now displays a clear error message using Django's messages framework, informing the user that their login credentials were invalid.
 
+- *Bug 8:*  
+When a user attempted to register a new account but tried to enter an already used username or used a password that is not eligible and hit Submit, the form just reset without informing the user what went wrong.  
+*Solution:*  
+To solve this issue I needed to reinstall `django-allauth`. Afterwards I rebuild the Sign Up form from ground up again and made sure to not delete anything installed from allauth. Probably the problem came from cleaning up the code base and deleting parts of allauth in the process that where needed for handling messages and error signals.
+
 ### Unsolved Bugs
 - Images that are provided through Cloudinary are linked as http instead of https. This affects the performance of the website in Lighthouse.
 
