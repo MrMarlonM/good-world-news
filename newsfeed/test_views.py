@@ -105,4 +105,49 @@ class TestEditCommentView(TestCase):
         updated_comment = Comment.objects.get(pk=self.comment.id)
         self.assertEqual(updated_comment.content, 'Updated comment')
         self.assertFalse(updated_comment.approved)
+    
+def TestDeleteCommentView(TestCase):
+    """All tests for the comment_delete view"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+        username='testuser', password='testpassword')
+
+        self.article = Article(
+            title="Article Title",
+            slug="article-title",
+            author=self.user,
+            is_breaking_news=True,
+            excerpt="Article Excerpt",
+            content="Article Content",
+            status=1,
+            )
+        self.article.save()
+
+        self.comment = Comment.objects.create(
+            article=self.article,
+            author=self.user,
+            content='Original comment'
+                )
+        self.comment.save()
+
+        self.client.login(
+            username='testuser', password='testpassword'
+            )
         
+    def test_successful_comment_delete(self):
+        """Checks if user can delete a comment successfully"""
+        response = self.client.post(
+            reverse(
+                'comment_delete',
+                args=[self.article.slug, self.comment.id])
+            )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, reverse('article_detail', args=[self.article.slug])
+            )
+        self.assertIn(
+            b"Your comment was successfully deleted.",
+            response.content
+        )
+        with self.assertRaises(Comment.DoesNotExist):
+            Comment.objects.get(pk=self.comment.id)
