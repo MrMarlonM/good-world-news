@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 from django.urls import reverse
 from django.test import TestCase
 from .forms import CommentForm
-from .models import Article, Comment
+from .models import Article, Comment, Like
+
 
 class TestArticleViews(TestCase):
     """All tests for the article_detail view"""
@@ -105,7 +107,8 @@ class TestEditCommentView(TestCase):
         updated_comment = Comment.objects.get(pk=self.comment.id)
         self.assertEqual(updated_comment.content, 'Updated comment')
         self.assertFalse(updated_comment.approved)
-    
+
+
 def TestDeleteCommentView(TestCase):
     """All tests for the comment_delete view"""
     def setUp(self):
@@ -151,3 +154,61 @@ def TestDeleteCommentView(TestCase):
         )
         with self.assertRaises(Comment.DoesNotExist):
             Comment.objects.get(pk=self.comment.id)
+
+
+class TestArticleLikeView(TestCase):
+    """All tests for the article_like view"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword')
+
+        self.article = Article(
+            title="Article Title",
+            slug="article-title",
+            author=self.user,
+            is_breaking_news=True,
+            excerpt="Article Excerpt",
+            content="Article Content",
+            status=1,
+            )
+        self.article.save()
+        self.client.login(username='testuser', password='testpassword')
+    
+    def test_like_article(self):
+        """Test for liking an article"""
+        referer = reverse('article_detail', args=[self.article.slug])
+        self.client.get(referer)
+
+        response = self.client.post(
+            reverse('article_like', args=[self.article.slug]),
+            HTTP_REFERER=referer
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, referer)
+        self.assertTrue(Like.objects.filter(
+            user=self.user, 
+            content_type=ContentType.objects.get_for_model(Article), 
+            object_id=self.article.id
+        ).exists())
+    
+    def test_unlike_article(self):
+        """Test for unliking an article"""
+        Like.objects.create(
+            user=self.user, 
+            content_type=ContentType.objects.get_for_model(Article), 
+            object_id=self.article.id
+        )
+        referer = reverse('article_detail', args=[self.article.slug])
+        self.client.get(referer)
+
+        response = self.client.post(
+            reverse('article_like', args=[self.article.slug]),
+            HTTP_REFERER=referer 
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, referer)
+        self.assertFalse(Like.objects.filter(
+            user=self.user, 
+            content_type=ContentType.objects.get_for_model(Article), 
+            object_id=self.article.id
+        ).exists())
