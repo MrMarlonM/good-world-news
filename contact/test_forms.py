@@ -28,7 +28,7 @@ class TestContactForm(TestCase):
         self.assertFalse(
             form.is_valid(),
             msg="No name was provided, but the form is valid!")
-    
+
     def test_email_is_required(self):
         """Test for the 'email' field"""
         form = ContactForm({
@@ -40,7 +40,7 @@ class TestContactForm(TestCase):
         self.assertFalse(
             form.is_valid(),
             msg="No email was provided, but the form is valid!")
-        
+
     def test_reason_is_required(self):
         """Test for the 'reason' field"""
         form = ContactForm({
@@ -52,7 +52,7 @@ class TestContactForm(TestCase):
         self.assertFalse(
             form.is_valid(),
             msg="No reason was provided, but the form is valid!")
-        
+
     def test_message_is_required(self):
         """Test for the 'message' field"""
         form = ContactForm({

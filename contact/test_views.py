@@ -12,7 +12,7 @@ class TestContactView(TestCase):
         self.assertIsInstance(
             response.context['form'], ContactForm
         )
-    
+
     def test_successful_contact_form_submission(self):
         """Test for someone trying to contact the website owner"""
         contact_data = {
