@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.contenttypes.models import ContentType
 from django.urls import reverse
 from django.test import TestCase
@@ -212,3 +212,50 @@ class TestArticleLikeView(TestCase):
             content_type=ContentType.objects.get_for_model(Article), 
             object_id=self.article.id
         ).exists())
+    
+
+class TestApproveCommentView(TestCase):
+    """All tests for the approve_comment view"""
+    def setUp(self):
+        self.moderator = User.objects.create_user(username='moderator', password='moderatorpassword')
+        moderator_group, _ = Group.objects.get_or_create(name='Moderator')
+        self.moderator.groups.add(moderator_group)
+
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword')
+
+        self.article = Article(
+            title="Article Title",
+            slug="article-title",
+            author=self.user,
+            is_breaking_news=True,
+            excerpt="Article Excerpt",
+            content="Article Content",
+            status=1,
+            )
+        self.article.save()
+
+        self.comment = Comment.objects.create(
+            article=self.article,
+            author=self.user,
+            content='Test comment',
+            approved=False
+            )
+    
+    def test_approve_comment_as_moderator(self):
+        """Test to see if the moderator can approve a comment"""
+        self.client.login(
+            username='moderator',
+            password='moderatorpassword'
+            )
+        
+        response = self.client.post(
+            reverse('approve_comment',
+                args=[self.article.slug, self.comment.id]))
+        
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, reverse('article_detail', args=[self.article.slug])
+            )
+        updated_comment = Comment.objects.get(pk=self.comment.id)
+        self.assertTrue(updated_comment.approved)
