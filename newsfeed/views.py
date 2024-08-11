@@ -93,7 +93,7 @@ def article_detail(request, slug):
 
             messages.add_message(
                 request, messages.SUCCESS,
-                'Your comment was submitted successfully and awaits aproval.'
+                'Your comment was submitted successfully and awaits approval.'
             )
 
     comment_form = CommentForm()

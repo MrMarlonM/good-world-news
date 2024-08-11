@@ -23,7 +23,7 @@ def contact_form(request):
         if form.is_valid():
             form.save()
 
-            messages.success(request, 'Your messages was sent successfully.')
+            messages.success(request, 'Your message was sent successfully.')
             return redirect('home')
 
     else:
