@@ -4,8 +4,9 @@ from .forms import ContactForm
 
 
 class TestContactView(TestCase):
-    
+    """All tests for the contact view"""
     def test_render_contact_form(self):
+        """Test for rendering the contact_form correctly"""
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(

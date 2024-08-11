@@ -3,7 +3,7 @@ from .forms import ContactForm
 
 
 class TestContactForm(TestCase):
-    
+    """All tests for the contact form"""
     def test_form_is_valid(self):
         """Checks if the form is valid"""
         form = ContactForm({
