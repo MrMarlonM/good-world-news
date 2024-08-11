@@ -389,6 +389,13 @@
     - The expected outcome was fulfilled
 
 ## Automated Testing
+- **Framework:** Django's built-in unit testing framework
+- **Test Coverage:**
+    - **Views:** `contact_form`, `article_detail`, `comment_edit`, `comment_delete`, `article_like`, `approve_comment`
+    - **Forms:** `ContactForm`, `CommentForm`
+- **Test Results:** All tests passed successfully.
+
+![Image of successfully passed tests.](documentation/automated-tests-success.png)
 
 ## Browser Compatibility
 The website was tested on the following browsers to ensure cross-browser compatibility and consistent functionality:
